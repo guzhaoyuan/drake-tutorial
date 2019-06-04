@@ -1,5 +1,7 @@
 # Table of contents
 
 * [drake-tutorial](README.md)
-* [Drake Concept](drake-concept.md)
+* [To get started](to-get-started.md)
+* [Drake Concepts](drake-concept.md)
+* [Drake Multibody](drake-multibody.md)
 
