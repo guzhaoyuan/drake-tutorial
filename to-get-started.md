@@ -32,5 +32,5 @@ The [allegro hand example](https://github.com/RobotLocomotion/drake/blob/master/
 
 ### Where to go from here
 
-{% page-ref page="drake-concept.md" %}
+{% page-ref page="introduction/drake-concept.md" %}
 

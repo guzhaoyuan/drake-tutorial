@@ -1,8 +1,16 @@
 # Table of contents
 
-* [drake-tutorial](README.md)
+* [Drake Tutorial](README.md)
 * [To get started](to-get-started.md)
-* [Drake Concepts](drake-concept.md)
-* [Drake Simulation](drake-simulation.md)
-* [Drake Multibody](drake-multibody.md)
+
+## Introduction
+
+* [Drake Concepts](introduction/drake-concept.md)
+* [Drake Simulation](introduction/drake-simulation.md)
+* [Drake Multibody](introduction/drake-multibody.md)
+* [Drake Diagram](introduction/drake-diagram.md)
+
+## Thing to do in drake
+
+* [Control a underactuated robot using Inverse Dynamics Control](thing-to-do-in-drake/control-a-underactuated-robot-using-inverse-dynamics-control.md)
 
