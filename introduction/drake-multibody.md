@@ -1,7 +1,7 @@
 # Drake Multibody
 
-Multibody is the library that has the most related to me. I need to figure out all the features drake has or does not have to make full use of the library.  
-
+Multibody is the library relates most to robotics player. It represents the robot itself with a multibody tree, and exposes APIs that helps to compute robot math including kinematics dynamics jacobian, etc.  
+A very good material to start read is [Drake Documentation about Multibody](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_multibody_plant.html#details). It show the basic usage of multibody.
 
 ### Robot Modelling
 
