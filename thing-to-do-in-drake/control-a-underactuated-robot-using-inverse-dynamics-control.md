@@ -1,6 +1,12 @@
 # Control a underactuated robot using Inverse Dynamics Control
 
-The [Inverse Dynamics Controller](https://drake.mit.edu/doxygen_cxx/classdrake_1_1systems_1_1controllers_1_1_inverse_dynamics_controller.html#details) is a system block that takes in the desired acceleration and spit out whatever the general control force is. It comes in handy if you have a block controller that does all the inverse dynamics for you, so all you need is to pass the PID parameters into the controller to wrap the feedforward control signal into a feedback control.
+### Why Inverse Dynamics Control, why not PID?
+
+Why not use PID controller? That's a good question. If the robot's joints are decouples and using PID controller for each joint is the way to go. All you need is model-free parameters that corresponds to each joint. In my case, I am simulating a humanoid robot with two arms, the joints and links are deeply coupled that model-free method does not work well here.
+
+The [Inverse Dynamics Controller](https://drake.mit.edu/doxygen_cxx/classdrake_1_1systems_1_1controllers_1_1_inverse_dynamics_controller.html#details) is a system block that takes in the desired acceleration and spit out whatever the general control force is. Drake is handy because it has block that does all the inverse dynamics for you, so all you need is to pass the PID parameters into the controller to wrap the feedforward control signal into a feedback control.
+
+However, there is no such thing as a free lunch. The drake Inverse Dynamics Controller assumes the robot is a fully actuated system. For humanoid robot, this is definitely not true. So we have to use some tricks to fool the controller, make it serve for us.
 
 ### One possible method
 
