@@ -6,11 +6,9 @@ You get excited about a brand new Robotics Software. You would like the software
 
 The first thing to do is to install the drake. 
 
-If you want to develop using drake, I would recommend you compile your own software from source, the c++ version is the fully supported. But there are also ways to using the binary versions and using python bindings.
+If you want to develop using drake, I would recommend you compile your own software from source, the c++ version is the fully supported. But there are also ways to using the binary versions and using [python bindings](https://drake.mit.edu/python_bindings.html#using-python-bindings). In this tutorial I would only focus on C++ version of drake.
 
-If you decide to build from c++, you would encounter **bazel**, a building software from google. It has similar functions as cmake. Follow the [drake documentation for installation](https://drake.mit.edu/installation.html) it will cover the all you would need for install from source.
-
-* [ ] Use of drake binary and python bindings is not yet documented.
+Drake use [**bazel**](https://bazel.build/) as the building tool. It is a building software from google. It has similar functions as Cmake. Follow the [drake documentation for installation](https://drake.mit.edu/installation.html), it will cover the all you would need for installing from source.
 
 ### Play with examples
 
@@ -18,7 +16,7 @@ After installation, try run a simulation example.
 
 #### Simulate a ball dropping into a plane
 
-I personally find this [README](https://github.com/RobotLocomotion/drake/tree/master/examples/multibody/inclined_plane_with_body) is helpful to get started, just follow the instructions in the readme.
+I personally find this [README](https://github.com/RobotLocomotion/drake/tree/master/examples/multibody/inclined_plane_with_body) is helpful to get started, just follow the instructions in the readme, and you would get a inclined plane and a simulation of ball dropping from a certain height.
 
 #### Visualize KUKA arm
 
@@ -26,9 +24,9 @@ After the ball dropping, you could also play with the KUKA arm using a little sl
 
 #### Explore more examples
 
-After the above two, you should have learnt how to open visualizer and how to run a simulation. You could have more fun with examples in the _drake/examples_ folder.
+After the above two, you should have learnt how to open visualizer and how to run a simulation. You could have more fun with examples in the [_drake/examples_](https://github.com/RobotLocomotion/drake/tree/master/examples) folder.
 
-The [allegro hand example](https://github.com/RobotLocomotion/drake/blob/master/examples/allegro_hand/run_allegro_constant_load_demo.cc) is an example worth look into. You could learn how to import sdf model and run simulation using that model.
+The [allegro hand example](https://github.com/RobotLocomotion/drake/blob/master/examples/allegro_hand/run_allegro_constant_load_demo.cc) is a good example. You could learn how to import sdf model and run simulation using that model.
 
 ### Where to go from here
 
