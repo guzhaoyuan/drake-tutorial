@@ -1,21 +1,19 @@
 # Drake Multibody
 
-Multibody is the library relates most to robotics player. It represents the robot itself with a multibody tree, and exposes APIs that helps to compute robot math including kinematics dynamics jacobian, etc.  
-A very good material to start read is [Drake Documentation about Multibody](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_multibody_plant.html#details). It show the basic usage of multibody.
+Multibody is the kep part of drake. It represents the robot itself with a multibody tree, and exposes APIs that help to compute robot mathematics including kinematics, dynamics, jacobian, etc.  
+A very good material to start read is [Drake Documentation about Multibody](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_multibody_plant.html#details). It show how multibody is constructed and how it fit with other drake components.
 
 ### Robot Modelling
 
-Drake could read urdf or sdf using a parser.
+Drake could read urdf or sdf using a parser. The parser use [tinyxml2](https://github.com/leethomason/tinyxml2) library to parse the xml file. It would parse each link, joint, transmission in the xml file.
 
-The downside is the drake does not support the mesh file for collision.
+The downside of drake is it does not support mesh file geometry for collision. In other words, if you need to simulate collision, you would need to create your own collision model, usually some simple geometry that wraps around your mesh file. \(I found it more convenient to add collision model using Rviz, because it has a check box so you could choose to show the collision geometry or not, way easier to compair between mesh and collision geometry than drake.\)
 
-Drake do support the package mechanism in ROS, so if your urdf is refering the mesh file from package rather than relative path, drake got you covered. However, you will need to make the folder hosting urdf file a `package`, which means you will need to provide the `package.xml` file and change the `BUILD.bazel` file to make the bazel build system recognize the package. In addition, you will have to allocate the path for the `package.xml` file to make the program could recognize the package as well.  
+Drake do support the similar package mechanism in ROS, so if your urdf is refering the mesh file from package rather than relative path, drake got you covered. However, you will need to make the folder hosting urdf file a `package`, which means you will need to provide the `package.xml` file and change the `BUILD.bazel` file to make the bazel build system recognize the package. In addition, you will have to allocate the path for the `package.xml` file to make the program could recognize the package as well. \(TODO: Add example here.\)
 
+One thing worth mentioning is that drake requires the model to have at least one `transmission` in the urdf, or it will fail to create input torque port for the plant. So if you do not have any `transmission` tag in the urdf, do create `SimpleTransmission` for each actuated joint.
 
-The parser use [tinyxml2](https://github.com/leethomason/tinyxml2) library to parse the urdf xml file. It would parse the link, joint, transmission, etc.
-
-One thing need to mention is that drake requires you have at least one transmission in the urdf, or it will fail to create a input torque port for the plant. So if you do not have any `transmission` tag in the urdf, do create at least a `SimpleTransmission`.  
-
+One more thing, every model created in drake by default is a floating base plant, with a default `world_frame` and a floating base joint connected to the `world_frame`. So if your robot should be fixed to the ground, you would create new joints in drake to specify what kind of joint the robot base is connected with the world.
 
 ### Kinematics
 
@@ -24,8 +22,7 @@ After the URDF file is imported, the multibodyplant is created. The plant is a c
 
 ### Jacobian
 
-Drake support compute all kinds of jacobian. To calculate the derivative wrt to something, `AutoDiff` is used to ease the way of calculating.  
-
+Drake support compute all kinds of jacobian. To calculate the derivative wrt to something, `AutoDiff` is used to ease the way of calculating.
 
 ### Dynamics
 

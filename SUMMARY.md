@@ -6,9 +6,8 @@
 ## Introduction
 
 * [Drake Concepts](introduction/drake-concept.md)
-* [Drake Simulation](introduction/drake-simulation.md)
 * [Drake Multibody](introduction/drake-multibody.md)
-* [Drake Diagram](introduction/drake-diagram.md)
+* [Drake Simulation](introduction/drake-simulation.md)
 
 ## Thing to do in drake
 
