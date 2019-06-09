@@ -4,7 +4,7 @@ description: Learning drake from a perspective of robotics beginner.
 
 # Drake Tutorial
 
-[Drake](https://drake.mit.edu/) is a robotics software maintained by Toyota Research Institute. It is very good tool to use but a bit hard for beginner to start with. Here I share my learning experience and my personal understanding of drake. Hopefully beginners in drake would find it useful.
+[Drake](https://drake.mit.edu/) is a robotics C++ software maintained by [Robot Locomotion Group](http://groups.csail.mit.edu/locomotion/) from MIT and [Toyota Research Institute](https://www.tri.global/). It is a powerful weapon for robotics developer but also a little hard for beginners to start with. Here I am sharing my learning experience and my personal understanding of drake. Hopefully drake beginners would find it useful.
 
 This repo is supported by GitBook, go to [https://drake.guzhaoyuan.com/](https://drake.guzhaoyuan.com/) for reading.
 
