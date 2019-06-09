@@ -10,3 +10,5 @@ This repo is supported by GitBook, go to [https://drake.guzhaoyuan.com/](https:/
 
 To contribute, contact the author [github@guzhaoyuan](https://github.com/guzhaoyuan).
 
+If you have any questions, feel free to [fire an issue](https://github.com/guzhaoyuan/drake-tutorial/issues). I am more than happy to keep improving this document.
+
