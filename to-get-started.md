@@ -1,34 +1,46 @@
 # To get started
 
-You get excited about a brand new Robotics Software. You would like the software to simulate your beloved robot in simulation, you want to compute kinematics and dynamics of the robot, you want to do advanced motion planning using Quadratic Programming because you heard that Boston Dynamics is using that to do back flip. You are in the right place, drake is the right software to get you started.
+You are excited to simulate your beloved robot with your brand new robotics software. You want to compute kinematics and dynamics. You want to do advanced motion planning because you heard Boston Dynamics uses Quadratic Programming to do back flips. You are in the right place, Drake is the software to get you started.
 
 ### Install drake
 
-The first thing to do is to install the drake. 
+Although there are binary and [python bindings](https://drake.mit.edu/python_bindings.html#using-python-bindings) of Drake, I recommend you compile Drake from its C++ source code \(this tutorial focuses only on the C++ version of Drake\).
 
-If you want to develop using drake, I would recommend you compile your own software from source, the c++ version is the fully supported. But there are also ways to using the binary versions and using [python bindings](https://drake.mit.edu/python_bindings.html#using-python-bindings). In this tutorial I would only focus on C++ version of drake.
+To download and install Drake, follow these [installation](https://drake.mit.edu/installation.html) [instructions](https://drake.mit.edu/installation.html). 
 
-Drake use [**bazel**](https://bazel.build/) as the building tool. It is a building software from google. It has similar functions as Cmake. Follow the [drake documentation for installation](https://drake.mit.edu/installation.html), it will cover the all you would need for installing from source.
+Note: Drake is compiled with the [**bazel**](https://bazel.build/) build tool \(developed by Google\). It has similar functions as Cmake.
 
-### Play with examples
+### Try the following simulation examples
 
-After installation, try run a simulation example.
+#### Simulate a ball dropping onto a inclined plane
 
-#### Simulate a ball dropping into a plane
+This [README](https://github.com/RobotLocomotion/drake/tree/master/examples/multibody/inclined_plane_with_body) helps you simulate a ball dropping from a certain height onto a inclined plane, and sliding/rolling down the plane.
 
-I personally find this [README](https://github.com/RobotLocomotion/drake/tree/master/examples/multibody/inclined_plane_with_body) is helpful to get started, just follow the instructions in the readme, and you would get a inclined plane and a simulation of ball dropping from a certain height.
+#### Visualize a KUKA arm
 
-#### Visualize KUKA arm
+To control the position of a KUKA arm with a slider GUI, follow these instructions. Note: The complete code is [here](https://github.com/RobotLocomotion/drake/blob/f9e34080cf77ddf49370eaa866212e50f245e6d4/manipulation/util/geometry_inspector.py#L9).
 
-After the ball dropping, you could also play with the KUKA arm using a little slider gui. Follow the instructions from the [gui comments](https://github.com/RobotLocomotion/drake/blob/f9e34080cf77ddf49370eaa866212e50f245e6d4/manipulation/util/geometry_inspector.py#L9) to control the position of the robot.
+```text
+cd drake
+bazel build //tools:drake_visualizer //manipulation/util:geometry_inspector
+# Terminal 1
+./bazel-bin/tools/drake_visualizer
+# Terminal 2
+./bazel-bin/manipulation/util/geometry_inspector \
+    ./manipulation/models/iiwa_description/sdf/iiwa14_no_collision.sdf
+```
 
 #### Explore more examples
 
-After the above two, you should have learnt how to open visualizer and how to run a simulation. You could have more fun with examples in the [_drake/examples_](https://github.com/RobotLocomotion/drake/tree/master/examples) folder.
-
-The [allegro hand example](https://github.com/RobotLocomotion/drake/blob/master/examples/allegro_hand/run_allegro_constant_load_demo.cc) is a good example. You could learn how to import sdf model and run simulation using that model.
+Ideally, you now have learned how to visualize and run a simulation. You are ready to enjoy more examples in the [_drake/examples_](https://github.com/RobotLocomotion/drake/tree/master/examples) folder, such as the [allegro hand example](https://github.com/RobotLocomotion/drake/blob/master/examples/allegro_hand/run_allegro_constant_load_demo.cc), in which you import an SDF model and run its simulation.
 
 ### Where to go from here
 
+#### Understand Drake concepts
+
 {% page-ref page="introduction/drake-concept.md" %}
+
+#### Try using controller to control the robot
+
+{% page-ref page="thing-to-do-in-drake/try-out-pid-controller.md" %}
 
