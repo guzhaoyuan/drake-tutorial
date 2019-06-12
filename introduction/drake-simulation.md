@@ -36,7 +36,7 @@ To visualize the robot, `MultibodyPlant` should be registered to the `SceneGraph
 
 The `Simulator` takes in the whole system diagram and runs the simulation. Using the robot dynamics and environment forces, the `Simulator` computes the state change. It then runs numerical integration to calculate the next system state, and write the states back to the diagram data bank. It keep updating the states until the simulation finishes.
 
-## Steps: from urdf to moving robot
+## Steps: from URDF to a moving robot
 
 1. Import urdf or sdf file to create the robot `MultibodyPlant`.
 2. Insert the subsystem into diagram.
