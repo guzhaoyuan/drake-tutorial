@@ -41,3 +41,7 @@ You should see the robot arm moving with command data in the LCM inspector chang
 
 TODO: GIF!
 
+### Links
+
+The KUKA Manipulation example is [here](https://github.com/RobotLocomotion/drake/tree/master/examples/kuka_iiwa_arm).
+

@@ -8,7 +8,7 @@ The [Inverse Dynamics Controller](https://drake.mit.edu/doxygen_cxx/classdrake_1
 
 However, drake Inverse Dynamics Controller assumes the robot is a fully actuated system, it only accept a fully actuated plant as the controlled plant. For any mobile robot, this is definitely not true. So we have to use some tricks to fool the controller, make it work for us.
 
-### One possible method: Patial Feedback Linearization
+### One possible method: Partial Feedback Linearization
 
 Controlling a underactuated robot using inverse dynamics control is actually achievable using partial feedback linearization. The idea is to separate the system states into 2 parts, actuated and unactuated. Then we use planning algorithms to change the desired reference into a more achievable goal for both of these states. We have to compromise here because with some unactuated states, the system is underactuated, meaning we could not track whatever reference we want, but with some planning and optimization, we could modify the reference to make the goal achievable. 
 
