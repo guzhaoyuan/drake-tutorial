@@ -42,7 +42,12 @@ Ideally, you now have learned how to visualize and run a simulation. You are rea
 
 {% page-ref page="introduction/drake-concept.md" %}
 
-#### Try using controllers to control the robot
+#### Try using controllers to control a robot
 
 {% page-ref page="thing-to-do-in-drake/try-out-pid-controller.md" %}
+
+### Useful links
+
+* [Drake Doxygen](http://drake.mit.edu/doxygen_cxx/index.html#://) \(Web-based documentation for C++ source code\)
+* [Underactuated Robotics Online Textbook](http://underactuated.csail.mit.edu/underactuated.html) \(Class teaches by Russ Tedrake that heavily uses Drake\)
 

@@ -1,16 +1,17 @@
 # Drake Concepts
 
-First of all, Drake is a huge software library with a dedicated team who is actively supporting developers to use Drake.
+Drake is a huge software library with a dedicated team actively supporting robotics developers.
 
-There are several big part of Drake.
+There are several big parts of Drake:
 
-* Multibody, used to create robot model from URDF or SDF or API.
-* Math, a mathematics library with a lot of convenient operations needed in Robotics.
-* Solver, includes some famous and useful optimization tools, like Gurobi, SNOPT, IPOPT, SCS, MOSEK.
-* Simulator, Forward Dynamics + Numerical integrator + visualization + API to interact with things in the simulator.
-* Utility tools: like visualization tools that the simulator would use.
+* Diagram: Just like Simulink model, at it's core, Drake uses an abstract block diagram representation to model a dynamic system. Blocks generally represent different systems, and the connections between blocks represent the input/output relationships between those systems. ****The basic idea is to make system blocks and connect them together.
+  * Multibody, a special system block used to create and represent robot model from URDF/ SDF/API.
+* Math: a mathematics library with a lot of convenient operations needed in Robotics.
+* Solver: Drake have incorporated famous and useful optimization tools, for example, Gurobi, SNOPT, IPOPT, SCS, MOSEK.
+* Simulation: Drake is a simulation software. The simulator could take in the system diagram and perform Forward Dynamics + Numerical integration, to simulate the whole system. It also have a APIs to interact with objects in the simulator.
+* Utility tools: Utility tools includes visualization tools to display the simulation result.
 
-## Key Concept
+## Key Concepts
 
 #### LCM
 
