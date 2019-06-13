@@ -15,6 +15,7 @@
 * [Play with Inverse Dynamics Controll on fully actuated system](thing-to-do-in-drake/play-with-inverse-dynamics-controll-on-fully-actuated-system.md)
 * [Control a underactuated robot using Inverse Dynamics Control](thing-to-do-in-drake/control-a-underactuated-robot-using-inverse-dynamics-control.md)
 * [Use Drake as part of your project](thing-to-do-in-drake/use-drake-as-part-of-your-project.md)
+* [Visualize data in LCM](thing-to-do-in-drake/visualize-data-in-lcm.md)
 
 ## Q & A
 
