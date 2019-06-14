@@ -39,7 +39,7 @@ bazel-bin/examples/kuka_iiwa_arm/move_iiwa_ee -x 0.8 -y 0.3 -z 0.25 -yaw 1.57
 
 You should see the robot arm moving with command data in the LCM inspector change simultaneously.
 
-TODO: GIF!
+![](../.gitbook/assets/untitled.gif)
 
 ### Links
 
