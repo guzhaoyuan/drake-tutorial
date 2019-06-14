@@ -37,9 +37,9 @@ Finally we need to send command to the planner, it will run the KUKA arm.
 bazel-bin/examples/kuka_iiwa_arm/move_iiwa_ee -x 0.8 -y 0.3 -z 0.25 -yaw 1.57
 ```
 
-You should see the robot arm moving with command data in the LCM inspector change simultaneously.
+You should see the robot arm moving with the commanding data in the LCM inspector change simultaneously.
 
-![](../.gitbook/assets/untitled.gif)
+![The data channels on the left show each joint&apos;s control command](../.gitbook/assets/untitled.gif)
 
 ### Links
 
