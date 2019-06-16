@@ -6,7 +6,7 @@ You are excited to simulate your beloved robot with your brand new robotics soft
 
 Although there are binary and [python bindings](https://drake.mit.edu/python_bindings.html#using-python-bindings) of Drake, I recommend you compile Drake from its C++ source code \(this tutorial focuses only on the C++ version of Drake\).
 
-To download and install Drake, follow these [installation](https://drake.mit.edu/installation.html) [instructions](https://drake.mit.edu/installation.html). 
+To download and install Drake, follow these [installation instructions](https://drake.mit.edu/installation.html).
 
 {% hint style="info" %}
 Note: Drake is compiled with the [**bazel**](https://bazel.build/) build tool \(developed by Google\). It has similar functions as CMake.

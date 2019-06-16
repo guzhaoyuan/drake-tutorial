@@ -1,2 +1,2 @@
-# Play with Inverse Dynamics Control on fully actuated system
+# Use Inverse Dynamics Control on fully-actuated system
 

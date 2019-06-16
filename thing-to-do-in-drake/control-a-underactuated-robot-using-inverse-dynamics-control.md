@@ -1,4 +1,4 @@
-# Control a underactuated robot using Inverse Dynamics Control
+# Control a underactuated robot using Inverse Dynamics Controller
 
 ### Why Inverse Dynamics Control, why not PID?
 
