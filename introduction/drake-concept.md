@@ -4,24 +4,45 @@ Drake is a huge software library with a dedicated team actively supporting robot
 
 There are several big parts of Drake:
 
-* Diagram: Just like Simulink model, at it's core, Drake uses an abstract block diagram representation to model a dynamic system. Blocks generally represent different systems, and the connections between blocks represent the input/output relationships between those systems. ****The basic idea is to make system blocks and connect them together.
-  * Multibody, a special system block used to create and represent robot model from URDF/ SDF/API.
-* Math: a mathematics library with a lot of convenient operations needed in Robotics.
-* Solver: Drake have incorporated famous and useful optimization tools, for example, Gurobi, SNOPT, IPOPT, SCS, MOSEK.
-* Simulation: Drake is a simulation software. The simulator could take in the system diagram and perform Forward Dynamics + Numerical integration, to simulate the whole system. It also have a APIs to interact with objects in the simulator.
-* Utility tools: Utility tools includes visualization tools to display the simulation result.
+### Modeling Dynamical Systems
 
-## Key Concepts
+This is the simulation part. Drake model complex systems by building up from small blocks.
+
+#### Diagram
+
+Just like Simulink model, at it's core, Drake uses an abstract block diagram representation to model a dynamic system. Blocks generally represent different systems, and the connections between blocks represent the input/output relationships between those systems. ****The basic idea is to make system blocks and connect them together.
+
+#### Simulation
+
+Drake is a simulation software. The simulator could take in the system diagram and perform Forward Dynamics + Numerical integration, to simulate the whole system. It also have a APIs to interact with objects in the simulator. 
+
+### Solving Methematical Programs
+
+Drake incorporated famous and useful optimization tools, for example, Gurobi, SNOPT, IPOPT, SCS, MOSEK. This part helps to solve methematical problem in robotics, especially in motion planning.
+
+### Multibody Kinematics and Dynamics
+
+Multibody represents systems composed of multiple rigid body. This class is rich with methods that handles robot kinematics and dynamics calculation. Multibody acts as a subsystem in Diagram during simulation.
+
+Utility tools: Utility tools includes visualization tools to display the simulation result.
+
+## Tools that Drake use
+
+#### Eigen
+
+[Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page) is a C++ library with linear algebra operations and algorithms.
 
 #### LCM
 
-There is a communication tool that drake use for multi-process communication called LCM.
+LCM is a communication tool for multi-process communication. LCM is everywhere in Drake. It serves as bridge between system ports, so all the communication between systems can be inspected by LCM spy tool.
 
-#### Multibody
+{% page-ref page="../thing-to-do-in-drake/visualize-data-in-lcm.md" %}
 
-The Multibody is a important class that represent the robot. It has plenty of functions to help ease the computation and development of robots.
+#### Tinyxml2
 
-{% page-ref page="drake-multibody.md" %}
+A handy tool to parse XML file, enables Drake to parse URDF and SDF, thus create `MultibodyPlant` for simulation.
 
+#### The Visualization Toolkit \(VTK\)
 
+Drake uses [VTK](https://vtk.org/) as geometry rendering tool. The Drake visualizer communicate with the simulation through LCM.
 

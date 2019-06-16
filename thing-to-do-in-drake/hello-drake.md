@@ -15,6 +15,10 @@ mkdir -p examples/hello
 
 Create files named `BUILD.bazel` and `hello.cc` under _examples/hello_.
 
+{% hint style="info" %}
+The code is also [available on my github](https://github.com/guzhaoyuan/drake/tree/tutorial/examples/hello), you could copy the entire _hello/_ folder to your _drake/examples/_
+{% endhint %}
+
 Add the following contents to `BUILD.bazel`.
 
 {% code-tabs %}
@@ -99,10 +103,6 @@ bazel run //examples/hello:hello_exe -- --your_name=Russ
 Hooray, your get your first Drake program running! Now you are ready to digest some real meat.
 
 ### The Code Explained
-
-{% hint style="info" %}
-The code is also [available on my github](https://github.com/guzhaoyuan/drake/tree/tutorial/examples/hello), you could copy the entire _hello/_ folder to your _drake/examples/_ and run the same experiment.
-{% endhint %}
 
 #### BUILD.bazel
 

@@ -1,5 +1,5 @@
 ---
-description: Learning drake from a perspective of robotics beginner.
+description: Learning drake from the perspective of a robotics beginner.
 ---
 
 # Drake Tutorial
