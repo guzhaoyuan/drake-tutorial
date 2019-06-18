@@ -10,7 +10,7 @@
 * [Drake Simulation](introduction/drake-simulation.md)
 * [Drake Notation](introduction/drake-notation.md)
 
-## Things to do in drake
+## Things to do in drake <a id="thing-to-do-in-drake"></a>
 
 * [Hello, Drake!](thing-to-do-in-drake/hello-drake.md)
 * [PID control of inverted pendulum](thing-to-do-in-drake/try-out-pid-controller.md)
