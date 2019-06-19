@@ -22,6 +22,8 @@ There is a [method](https://drake.mit.edu/doxygen_cxx/classdrake_1_1systems_1_1_
 
 ![](../.gitbook/assets/diagram.png)
 
+A context could have continuous state, discrete state and abstract variable. Based on the system type, the simulator would update the context data by either numerically integrate the continuous derivative or [update the state by state space dynamics](https://drake.mit.edu/doxygen_cxx/group__discrete__systems.html).
+
 #### Simulation
 
 Drake is a simulation software. The Drake `simulator` takes in the system `diagram` together with its `context`, to update parameters such as the continuous time derivatives, discrete state updates, allocates the various outputs of a `system`, etc.
@@ -30,27 +32,33 @@ Drake is a simulation software. The Drake `simulator` takes in the system `diagr
 
 Drake incorporates famous and useful optimization tools, for example, Gurobi, SNOPT, IPOPT, SCS, MOSEK. These tools helps to solve mathematical problem in robotics, especially in motion planning.
 
+To use Mathematical Programming, there is a [very good starting point](https://colab.research.google.com/github/RussTedrake/underactuated/blob/master/src/mathematical_program_examples.ipynb) written in python, but the idea is the same for C++.
+
 ### Multibody Kinematics and Dynamics
 
-Multibody is a term meaning rigid body connected in a tree structure. For robotics systems, `diagram` has a unique `system` called `MultibodyPlant`. `MultibodyPlant` internally use a rigid body tree algorithms to compute the robot kinematics dynamics jacobian, etc. And because `MultibodyPlant` is a system, it has input/output port that could be connect to controller and visualizer to actually control and visualize the system.
+Multibody is a term meaning rigid body connected in a tree structure. For robotics systems, `diagram` has a unique `system` called `MultibodyPlant`. `MultibodyPlant` internally use a rigid body tree algorithms to compute the robot kinematics dynamics jacobian, etc. And because `MultibodyPlant` is a `system`, it has input/output port that could be connect to controller and visualizer to actually control and visualize.
 
 ## Tools that Drake use
 
-#### Eigen
+### Eigen
 
 [Eigen](http://eigen.tuxfamily.org/index.php?title=Main_Page) is a C++ library with linear algebra operations and algorithms.
 
-#### Lightweight Communications and Marshalling \(LCM\)
+#### AutoDiff
+
+A convenient technique to compute Differential.
+
+### Lightweight Communications and Marshalling \(LCM\)
 
 LCM is a multi-process communication tool. LCM is everywhere in Drake. It serves as bridge between system ports, so all the communication between systems are transported using LCM, and thus can be inspected by LCM spy tool.
 
 {% page-ref page="../thing-to-do-in-drake/visualize-data-in-lcm.md" %}
 
-#### Tinyxml2
+### Tinyxml2
 
 A handy tool to parse XML file, enables Drake to parse URDF and SDF, thus create `MultibodyPlant` for simulation.
 
-#### The Visualization Toolkit \(VTK\)
+### The Visualization Toolkit \(VTK\)
 
 Drake uses [VTK](https://vtk.org/) as geometry rendering tool. The Drake visualizer communicate with the simulation through LCM.
 
