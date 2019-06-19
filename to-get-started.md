@@ -44,7 +44,7 @@ Ideally, you now have learned how to visualize and run a simulation. You are rea
 
 #### Try using controllers to control a robot
 
-{% page-ref page="thing-to-do-in-drake/try-out-pid-controller.md" %}
+{% page-ref page="drake-controllers/try-out-pid-controller.md" %}
 
 ### Useful links
 

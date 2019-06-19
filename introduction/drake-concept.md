@@ -4,7 +4,11 @@ Drake's core library has 3 big parts:
 
 ### Dynamical Systems Modeling
 
-This is Drake simulation. Drake model complex systems by building up from small blocks called `system`. Connected`system` is called `diagram`.
+Dynamical System modeling is actually to simulate the real world physics.
+
+#### System
+
+Drake model building up complex systems from small blocks called `system`. system has input/output ports that could be connected with other system. Connected systems are called `diagram` \(and yet, a `diagram` is in fact a system\).
 
 #### Diagram
 
@@ -12,13 +16,15 @@ Drake's system modeling is like Matlab Simulink. Drake uses abstract block `diag
 
 #### Context
 
-`context` is cached data of system states, which is required for simulation. Each diagram and each system has its own context. The context has the same structure as the diagram.
+`context` is cached data of system states, which is required for simulation. Each diagram and each system has its own `context`. The `context` has the same structure as the `diagram`. The `context` of a `system` is everything you need to know for simulation, and given the `context` all methods called on a `system` should be completely deterministic and repeatable \(ref. [Underactuated Robotics textbook](http://underactuated.csail.mit.edu/underactuated.html?chapter=systems)\).
+
+There is a [method](https://drake.mit.edu/doxygen_cxx/classdrake_1_1systems_1_1_system.html#ab4e6ee413f4f47a20f6dcc2cbd831b88) to create a default value for all `context`. Things such as the initial state and the initial time can directly be set using `context` for that `system` before running the simulation.
 
 ![](../.gitbook/assets/diagram.png)
 
 #### Simulation
 
-Drake is a simulation software. The Drake `simulator` takes in the system `diagram` together with its `context`, to perform Forward Dynamics + Numerical integration thus simulate the whole system.
+Drake is a simulation software. The Drake `simulator` takes in the system `diagram` together with its `context`, to update parameters such as the continuous time derivatives, discrete state updates, allocates the various outputs of a `system`, etc.
 
 ### Mathematical Programs Solving
 
@@ -26,7 +32,7 @@ Drake incorporates famous and useful optimization tools, for example, Gurobi, SN
 
 ### Multibody Kinematics and Dynamics
 
-For robotics system, `diagram` has a unique `system` called `MultibodyPlant`. `MultibodyPlant` is a rigid body system. This class is rich with methods that compute robot kinematics dynamics jacobian, etc.
+Multibody is a term meaning rigid body connected in a tree structure. For robotics systems, `diagram` has a unique `system` called `MultibodyPlant`. `MultibodyPlant` internally use a rigid body tree algorithms to compute the robot kinematics dynamics jacobian, etc. And because `MultibodyPlant` is a system, it has input/output port that could be connect to controller and visualizer to actually control and visualize the system.
 
 ## Tools that Drake use
 

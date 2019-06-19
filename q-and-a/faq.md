@@ -6,9 +6,9 @@ If you are a robotics control guy, drake is for you. Drake has a dedicated team 
 
 ## I know ROS well, do I need to try drake at all?
 
-Yes, drake has a software stack similar to ROS, but it's more professional. It could compute planning based on optimization, it has controller that handles robot dynamics rather than just PID. 
+Drake has a software stack similar to ROS, but it's more professional. It could compute planning based on optimization, it has controller that handles robot dynamics rather than just PID. 
 
-So if you really dig deep into robotics and use serious advanced planning and control, drake is probably a better tool.
+So if you really dig deep into robotics and use advanced planning and control, Drake is probably a better tool.
 
 
 

@@ -13,13 +13,18 @@
 ## Things to do in drake <a id="thing-to-do-in-drake"></a>
 
 * [Hello, Drake!](thing-to-do-in-drake/hello-drake.md)
-* [PID control of inverted pendulum](thing-to-do-in-drake/try-out-pid-controller.md)
-* [Use Inverse Dynamics Control on fully-actuated system](thing-to-do-in-drake/play-with-inverse-dynamics-controll-on-fully-actuated-system.md)
-* [Control a underactuated robot using Inverse Dynamics Controller](thing-to-do-in-drake/control-a-underactuated-robot-using-inverse-dynamics-control.md)
-* [Use Drake as part of your project](thing-to-do-in-drake/use-drake-as-part-of-your-project.md)
+* [Create a simple system](thing-to-do-in-drake/create-a-simple-system.md)
+* [Create a URDF/SDF robot](thing-to-do-in-drake/create-a-urdf-sdf-robot.md)
 * [Visualize data in LCM](thing-to-do-in-drake/visualize-data-in-lcm.md)
+
+## Drake Controllers
+
+* [PID control of inverted pendulum](drake-controllers/try-out-pid-controller.md)
+* [Use Inverse Dynamics Control on fully-actuated system](drake-controllers/play-with-inverse-dynamics-controll-on-fully-actuated-system.md)
+* [Control a underactuated robot using Inverse Dynamics Controller](drake-controllers/control-a-underactuated-robot-using-inverse-dynamics-control.md)
 
 ## Q & A
 
 * [FAQ](q-and-a/faq.md)
+* [Use Drake as part of your project](q-and-a/use-drake-as-part-of-your-project.md)
 
