@@ -207,7 +207,9 @@ int main(int argc, char** argv) {
 }
 ```
 
-
+```text
+bazel run //examples/double_pendulum_pid:run_double_pendulum_pid_exe -- --Kp_=1000 --Ki_=5 --Kd_=100
+```
 
 ### Import URDF
 

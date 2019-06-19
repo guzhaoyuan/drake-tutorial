@@ -1,8 +1,6 @@
 # Drake Simulation
 
-> A continuous robotics simulation software needs three part. That's **Forward Dynamics**, **Numerical Integration** and **Visualization**.
-
-This page illustrates how the Drake Simulation works. We need to introduce 3 components that drake use. That's **Simulator**, **SceneGraph** and **Diagram**. Drake organize these parts with the principle similar to simulink, that you could connect these blocks with drake builder to easily construct your system.
+This page illustrates how the Drake Simulation works. We need to introduce 3 components that drake use. That's **Simulator**, **SceneGraph** and **Diagram**. Drake organizes these parts with the principle similar to simulink, that you could connect these blocks with Drake builder to easily construct your system.
 
 ### Diagram
 
