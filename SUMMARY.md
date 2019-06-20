@@ -20,7 +20,8 @@
 ## Drake Controllers
 
 * [PID control of inverted pendulum](drake-controllers/try-out-pid-controller.md)
-* [Use Inverse Dynamics Control on fully-actuated system](drake-controllers/play-with-inverse-dynamics-controll-on-fully-actuated-system.md)
+* [LQR on Cart Pole](drake-controllers/lqr-on-cart-pole.md)
+* [Inverse Dynamics Control on fully-actuated KUKA arm](drake-controllers/play-with-inverse-dynamics-controll-on-fully-actuated-system.md)
 * [Control a underactuated robot using Inverse Dynamics Controller](drake-controllers/control-a-underactuated-robot-using-inverse-dynamics-control.md)
 
 ## Q & A

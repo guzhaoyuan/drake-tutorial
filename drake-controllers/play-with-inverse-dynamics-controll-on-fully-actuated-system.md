@@ -1,2 +1,2 @@
-# Use Inverse Dynamics Control on fully-actuated system
+# Inverse Dynamics Control on fully-actuated KUKA arm
 
