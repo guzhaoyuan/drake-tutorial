@@ -46,7 +46,7 @@ Multibody is a term meaning rigid body connected in a tree structure. For roboti
 
 #### AutoDiff
 
-A convenient technique to compute Differential.
+A convenient technique to compute Derivative. Computing Integral is trivial and computing Derivative is non-trivial. AutoDiff is a good solution that Eigen provides to solve the derivative.
 
 ### Lightweight Communications and Marshalling \(LCM\)
 

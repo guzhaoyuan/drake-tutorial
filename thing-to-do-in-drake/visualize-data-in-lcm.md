@@ -2,6 +2,8 @@
 
 System blocks communicate with opening ports. Data flow from one port to another through LCM pipelines. We could visualize the data.
 
+### Open the visualizer
+
 Ensure that you have installed the drake visualizer with
 
 ```text
@@ -10,12 +12,16 @@ bazel build //tools:drake_visualizer
 bazel-bin/tools/drake_visualizer
 ```
 
+### Open LCM data inspector
+
 In another terminal, we open the LCM data inspector by
 
 ```text
 cd drake
 bazel-bin/lcmtypes/drake-lcm-spy
 ```
+
+### Execute the robot
 
 To visualize data, we need data. Controlling a robot to move is a good way to get data flowing. We start a KUKA arm simulation. In another terminal:
 
