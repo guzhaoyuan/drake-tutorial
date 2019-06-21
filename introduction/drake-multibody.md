@@ -5,9 +5,13 @@ A very good material to start read is [Drake Documentation about Multibody](http
 
 ### Robot Modeling
 
-To create a Multibody robot, one way to do is by parsing robot description file like URDF or SDF. Drake could read URDF or SDF using a parser. The parser use [tinyxml2](https://github.com/leethomason/tinyxml2) library to parse the xml file. It would parse each link, joint, transmission in the xml file.
+#### Create Multibody
 
-Another way is to create all the robot components using Drake API. For example, we could create [bodies](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_body.html) and connect bodies with [joints](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_joint.html).
+To create a Multibody robot, the best way is to parse robot description file like URDF or SDF. Drake could read URDF or SDF using a `parser`. The `parser` use [tinyxml2](https://github.com/leethomason/tinyxml2) library to parse the XML file. It would iteratively parse each link, joint, transmission and generate a Multibody tree structure as described in the XML file.
+
+Another way is to create all the robot components using Drake API. For example, we could create [bodies](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_body.html) and connect bodies with [joints](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_joint.html). This normally works for simple model like inverted pendulum.
+
+#### 
 
 Be careful that Drake does not support mesh file for geometry collision yet. In other words, if you need to simulate collision, you would need to create your own collision model, usually some simple geometry that wraps around your mesh file. \(I found it more convenient to add collision model using Rviz, because it has a check box allows you to show the collision geometry, way easier to compare between mesh and the simple collision geometry.\)
 
