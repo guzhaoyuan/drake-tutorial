@@ -2,6 +2,18 @@
 
 From now on, get your hands dirty. Follow the steps here to start building your own code.
 
+### Quick access to the tutorial demos
+
+If you just want to see the result very quick, you could always skip the tutorial and use code in [my branch](https://github.com/guzhaoyuan/drake). You could do same thing in all the examples in the tutorial. Here's how.
+
+```text
+cd drake
+git remote add gzy https://github.com/guzhaoyuan/drake.git
+git pull gzy tutorial
+git checkout tutorial
+bazel run //examples/hello:hello_exe
+```
+
 ### Create work space
 
 To create a simple example, we need a workspace, a C++ source file and a `BUILD.bazel` file.
@@ -106,7 +118,7 @@ Hooray, your get your first Drake program running! Now you are ready to digest s
 
 #### BUILD.bazel
 
-bazel will search the whole directory recursively to find `BUILD.bazel` files thus analysis all the taget libraries and executables. To build binary, we need a BUILD.bazel under the work space folder.
+`bazel` will search the whole directory recursively to find `BUILD.bazel`. `BUILD.bazel` specifies what sources and headers should be built, and what target libraries and executables should be generated. We need a `BUILD.bazel` under the work space folder.
 
 {% code-tabs %}
 {% code-tabs-item title="BUILD.bazel" %}
@@ -140,7 +152,7 @@ drake_cc_binary(
 
 Use `drake_cc_binary` to define how the binary is going to be built.  `drake_cc_binary` specifies the target executable name, which files to be build and all the required data and dependencies within the same project.
 
-Use `//common:text_logging_gflags` and `gflags` as dependency. `//common:text_logging_gflags` is a infomation logging tool. `gflags` module allow us to specify variables at runtime by passing arguments in command line, makes it easy to tune parameters without recompile.
+Use `//common:text_logging_gflags` and `gflags` as dependency. `//common:text_logging_gflags` is a information logging tool. `gflags` module allows us to specify variables at run-time by passing arguments in command line, makes it easy to tune parameters without recompile.
 
 #### hello.cc
 
@@ -154,7 +166,7 @@ Use `//common:text_logging_gflags` and `gflags` as dependency. `//common:text_lo
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Include `gflags` header file. 
+Include `gflags` header file. `gflags` parses the command line parameters at run-time.
 
 Include drake logging header file which contains function `drake::log()`.
 
@@ -179,7 +191,7 @@ void DoMain() {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Define the `Domain` function, which serves as our main process. This program plot a string to concole.
+Define the `DoMain` function, which serves as our main process. This program plots a string to console.
 
 {% code-tabs %}
 {% code-tabs-item title="hello.cc" %}
@@ -195,5 +207,5 @@ int main(int argc, char* argv[]) {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Entrance of the program. The program starts by parsing the argument specified by user.
+Entrance to the program. The program starts by parsing the argument specified by user.
 
