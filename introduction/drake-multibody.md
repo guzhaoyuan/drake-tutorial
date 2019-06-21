@@ -1,15 +1,17 @@
 # Drake Multibody
 
-Multibody is the key part of Drake. It represents the robot itself with a Multibody tree, and exposes APIs that help to compute robot mathematics including kinematics, dynamics, jacobian, etc.  
+Multibody is the highlight of Drake. It represents a robot of a Multibody tree, and exposes APIs that computes robot mathematics including kinematics, dynamics, jacobian, etc.  
 A very good material to start read is [Drake Documentation about Multibody](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_multibody_plant.html#details). It show how Multibody is constructed and how it fit with other drake components.
 
 ### Robot Modeling
 
-Drake could read URDF or SDF using a parser. The parser use [tinyxml2](https://github.com/leethomason/tinyxml2) library to parse the xml file. It would parse each link, joint, transmission in the xml file.
+To create a Multibody robot, one way to do is by parsing robot description file like URDF or SDF. Drake could read URDF or SDF using a parser. The parser use [tinyxml2](https://github.com/leethomason/tinyxml2) library to parse the xml file. It would parse each link, joint, transmission in the xml file.
 
-The downside of drake is it does not support mesh file geometry for collision. In other words, if you need to simulate collision, you would need to create your own collision model, usually some simple geometry that wraps around your mesh file. \(I found it more convenient to add collision model using Rviz, because it has a check box so you could choose to show the collision geometry or not, way easier to compare between mesh and collision geometry than drake.\)
+Another way is to create all the robot components using Drake API. For example, we could create [bodies](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_body.html) and connect bodies with [joints](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_joint.html).
 
-Drake do support the similar package mechanism in ROS, so if your URDF is referring the mesh file from package rather than relative path, drake got you covered. However, you will need to make the folder hosting URDF file a `package`, which means you will need to provide the `package.xml` file and change the `BUILD.bazel` file to make the `bazel` build system recognize the package. In addition, you will have to allocate the path for the `package.xml` file to make the program could recognize the package as well. \(TODO: Add example here.\)
+Be careful that Drake does not support mesh file for geometry collision yet. In other words, if you need to simulate collision, you would need to create your own collision model, usually some simple geometry that wraps around your mesh file. \(I found it more convenient to add collision model using Rviz, because it has a check box allows you to show the collision geometry, way easier to compare between mesh and the simple collision geometry.\)
+
+If you migrate your robot from ROS, your URDF is probably using package to find the mesh file rather than using relative path. Drake support "package" which is used in ROS. However, you will at least need to change the folder with URDF files into a `package`, which means you should provide a `package.xml` file and modify the `BUILD.bazel` file to make the `bazel` build system recognize the `package`. In addition, in your code, the `package.xml` file path should be specified, to make the program recognize the package as well. There is a example for that. \(TODO: Add example here.\)
 
 #### Some default behavior Drake would do
 
