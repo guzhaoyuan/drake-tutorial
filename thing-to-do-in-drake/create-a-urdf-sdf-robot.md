@@ -1,8 +1,12 @@
 # Create a URDF/SDF robot
 
-To create a Multibody robot, read from a robot description file is a convenient way. Drake support parsing URDF and SDF file.
+To create a Multibody robot, read from a robot description file is a convenient way. Drake support parsing URDF and SDF files.
 
 ### Run the demo
+
+{% hint style="info" %}
+The code is also [available on my github](https://github.com/guzhaoyuan/drake/tree/tutorial/examples/hello), you could also [skip to the result](https://app.gitbook.com/@guzhaoyuan/s/drake-tutorial/~/drafts/-LhwNTR2xGyKygAg2KV7/primary/thing-to-do-in-drake/create-a-urdf-sdf-robot#quick-access-to-the-result).
+{% endhint %}
 
 #### Create work space & get model
 
@@ -167,10 +171,40 @@ int main(int argc, char** argv) {
 #### Run the code
 
 ```text
+bazel-bin/tools/drake_visualizer &
 bazel run //examples/double_pendulum_pid:run_double_pendulum_passive_exe
 ```
 
 ### The Code Explained
 
 
+
+### Quick access to the result
+
+Added code to you repository.
+
+```text
+cd drake
+git remote add gzy https://github.com/guzhaoyuan/drake.git
+git pull gzy tutorial
+git checkout tutorial
+```
+
+Run.
+
+```text
+bazel-bin/tools/drake_visualizer &
+bazel run //examples/double_pendulum_pid:run_double_pendulum_passive_exe
+```
+
+### Links
+
+The full code is [here](https://github.com/guzhaoyuan/drake/tree/tutorial/examples/double_pendulum_pid).
+
+Similar example of parsing an Allegro hand.
+
+```text
+bazel-bin/tools/drake_visualizer &
+bazel run //examples/allegro_hand:run_allegro_constant_load_demo
+```
 
