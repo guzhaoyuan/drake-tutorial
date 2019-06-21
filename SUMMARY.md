@@ -13,10 +13,10 @@
 ## Things to do in drake <a id="thing-to-do-in-drake"></a>
 
 * [Hello, Drake!](thing-to-do-in-drake/hello-drake.md)
-* [Create a simple system](thing-to-do-in-drake/create-a-simple-system.md)
 * [Create a URDF/SDF robot](thing-to-do-in-drake/create-a-urdf-sdf-robot.md)
+* [Create a simple system](thing-to-do-in-drake/create-a-simple-system.md)
 * [Visualize data in LCM](thing-to-do-in-drake/visualize-data-in-lcm.md)
-* [Control a real robot](thing-to-do-in-drake/control-a-real-robot.md)
+* [Control Real KUKA arm](thing-to-do-in-drake/control-a-real-robot.md)
 
 ## Drake Controllers
 

@@ -1,12 +1,12 @@
 # Create a simple system
 
-Before started, make sure you understand the basic Drake concept at this link.
+Before starting, make sure you understand the basic Drake concept at this link.
 
 {% page-ref page="../introduction/drake-concept.md" %}
 
 ### Goal
 
-Given a equation of motion of a system, we create a particle mass system, which moves with external force. Simulate the system and visualize results.
+Given a Equation of Motion \(EoM\) of a particle mass system, create the exact system which moves with external force. Simulate the system and visualize the results.
 
 ### Analysis
 
@@ -22,12 +22,12 @@ Say in our example, the system has EoM like this:
 $$
 \ddot{x} = f(t)/m \\
 y(t) = x(t) \\
-where x(t) = [x, \dot{x}]'
+where,  x(t) = [x, \dot{x}]'
 $$
 
-So we get external force f\(t\) from input port, then we compute the system state and write the result observation y\(t\) to output port.
+The system get external force $$f(t)$$ from input port, then we compute the system state and write the result observation $$y(t)$$ to output port.
 
-The f\(t\) comes from a input source, the output of the system goes to the visualization so we could observe the result.
+The $$f(t)$$ comes from a input source, the output of the system goes to the visualization so we could observe the result.
 
 ![](../.gitbook/assets/block-diagram-1.png)
 
