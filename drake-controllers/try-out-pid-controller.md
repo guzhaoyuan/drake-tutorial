@@ -17,9 +17,11 @@ In this tutorial, we will go through:
 3. Create a PID controller, and connect it to MultibodyPlant.
 4. Simulate and visualize.
 
-### Create work space
+### Run the demo
 
-Create work space and files.
+#### Create workspace
+
+Create workspace and files.
 
 ```text
 cd drake
@@ -28,7 +30,9 @@ touch BUILD.bazel
 touch run_double_pendulum_pid.cc
 ```
 
-To make the work space compile, we add the following to BUILD.bazel
+#### Add BUILD.bazel
+
+To make the work space compile, we add the following to `BUILD.bazel`
 
 {% code-tabs %}
 {% code-tabs-item title="BUILD.bazel" %}
@@ -69,11 +73,13 @@ install_data()
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-And add the .cc file
+#### Add source file
+
+And add the _run\_double\_pendulum\_pid.cc_ file
 
 {% code-tabs %}
 {% code-tabs-item title="run\_double\_pendulum\_pid.cc" %}
-```text
+```cpp
 ///
 /// @brief  An SDF based double pendulum example.
 ///
@@ -215,19 +221,12 @@ int main(int argc, char** argv) {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
+#### Simulate and visualize
+
 ```text
+bazel-bin/tools/drake_visualizer &
 bazel run //examples/double_pendulum_pid:run_double_pendulum_pid_exe -- --Kp_=1000 --Ki_=5 --Kd_=100
 ```
-
-### Import URDF
-
-
-
-### Create PID controller
-
-
-
-### Simulate and visualize
 
 ### Try with your own model
 

@@ -5,7 +5,7 @@ To create a Multibody robot, read from a robot description file is a convenient 
 ### Run the demo
 
 {% hint style="info" %}
-The code is also [available on my github](https://github.com/guzhaoyuan/drake/tree/tutorial/examples/hello), you could also [skip to the result](https://app.gitbook.com/@guzhaoyuan/s/drake-tutorial/~/drafts/-LhwNTR2xGyKygAg2KV7/primary/thing-to-do-in-drake/create-a-urdf-sdf-robot#quick-access-to-the-result).
+The code is also [available on my github](https://github.com/guzhaoyuan/drake/tree/tutorial/examples/hello), you could also [skip to the result](https://drake.guzhaoyuan.com/thing-to-do-in-drake/create-a-urdf-sdf-robot#quick-access-to-the-result).
 {% endhint %}
 
 #### Create work space & get model

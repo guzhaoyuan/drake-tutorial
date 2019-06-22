@@ -2,6 +2,10 @@
 
 System blocks communicate with opening ports. Data flow from one port to another through LCM pipelines. We could visualize the data.
 
+{% hint style="info" %}
+The order of executing the command matters in this example. Pay attention to following the order here.
+{% endhint %}
+
 ### Open the visualizer
 
 Ensure that you have installed the drake visualizer with
@@ -23,7 +27,7 @@ bazel-bin/lcmtypes/drake-lcm-spy
 
 ### Execute the robot
 
-To visualize data, we need data. Controlling a robot to move is a good way to get data flowing. We start a KUKA arm simulation. In another terminal:
+To visualize data, we need data. Controlling a robot to move is a good way to get data flowing. We start a KUKA arm simulation in another terminal:
 
 ```text
 bazel-bin/examples/kuka_iiwa_arm/kuka_simulation
