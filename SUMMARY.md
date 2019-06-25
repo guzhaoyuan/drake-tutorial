@@ -14,7 +14,6 @@
 
 * [Hello, Drake!](thing-to-do-in-drake/hello-drake.md)
 * [Create a URDF/SDF robot](thing-to-do-in-drake/create-a-urdf-sdf-robot.md)
-* [Create a simple system](thing-to-do-in-drake/create-a-simple-system.md)
 * [Visualize data in LCM](thing-to-do-in-drake/visualize-data-in-lcm.md)
 * [Control Real KUKA arm](thing-to-do-in-drake/control-a-real-robot.md)
 
@@ -29,4 +28,8 @@
 
 * [FAQ](q-and-a/faq.md)
 * [Use Drake as part of your project](q-and-a/use-drake-as-part-of-your-project.md)
+
+## Deprecated
+
+* [Create a simple system](deprecated/create-a-simple-system.md)
 
