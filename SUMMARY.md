@@ -15,6 +15,7 @@
 * [Hello, Drake!](thing-to-do-in-drake/hello-drake.md)
 * [Create a URDF/SDF robot](thing-to-do-in-drake/create-a-urdf-sdf-robot.md)
 * [Visualize data in LCM](thing-to-do-in-drake/visualize-data-in-lcm.md)
+* [Visualize trajectory in Drake Visualizer](thing-to-do-in-drake/visualize-trajectory-in-drake-visualizer.md)
 * [Control Real KUKA arm](thing-to-do-in-drake/control-a-real-robot.md)
 
 ## Drake Controllers
