@@ -34,9 +34,9 @@ To run a specific executable:
 bazel run //examples/double_pendulum:double_pendulum_demo
 ```
 
-`bazel run` will detect the file modification and build first if the file is changed and then run immediately after the build. 
+`bazel run` will detect the file modification and build first if the file is changed and then run immediately after the build. `:` indicates what's followed is an executable binary, in this case, `double_pendulum_demo`.
 
-Or you could execute the binary in the binary folder, which does not check the file change.
+Or you could execute the binary from terminal, which does not check the file change nor recompile. All the bazel binaries are put in the _drake/bazel-bin/_ folder automatically. The detailed location of an executable is defined by `BUILD.bazel`.
 
 ```text
 bazel-bin/examples/double_pendulum/double_pendulum_demo
@@ -52,9 +52,13 @@ This command applies when you wrote your own function and test cases. Then you c
 bazel test //common:polynomial_test
 ```
 
-### Any more?
+### For more bazel commands
 
-Commands in this page are enough to handle most cases. For advanced bazel usage, check [Drake documentation on bazel](https://drake.mit.edu/bazel.html#using-bazel). To learn more about bazel, please refer to [bazel official document](https://docs.bazel.build/versions/master/bazel-overview.html).
+Commands in this page are enough to handle most cases. 
+
+For advanced bazel usage, check out the [Drake document of bazel](https://drake.mit.edu/bazel.html#using-bazel). 
+
+To learn more about bazel, please refer to [bazel official document](https://docs.bazel.build/versions/master/bazel-overview.html).
 
 
 
