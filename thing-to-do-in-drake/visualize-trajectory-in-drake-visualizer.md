@@ -1,8 +1,12 @@
-# Visualize trajectory in Drake Visualizer
+# Visualize trajectory
+
+Drake does not support visualizing the trajectory yet. To show any customized data format, we need a plugin.
 
 ![Visualize trajectory](../.gitbook/assets/screenshot-from-2019-06-25-15-13-33.png)
 
-Create a plugin in drake/tools/workspace/drake\_visualizer/plugin/show\_trajectory.py
+### Create plugin
+
+You could place your plugin anywhere as long as they load correctly. I would put the plugin file `show_trajectory.py` under _drake/tools/workspace/drake\_visualizer/plugin/_
 
 {% code-tabs %}
 {% code-tabs-item title="show\_trajectory.py" %}
@@ -147,7 +151,13 @@ if __name__ == "__main__":
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Added publisher cpp code and BUILD.bazel under _drake/examples/viz_.
+The plugin could be loaded by the `drake_visualizer`, it will call the `_handle_message` every time it gets a message data. The message data is defined as `map{name, transformation}`. The plugin will display all the points as frames and connect the points with arrows.
+
+### Create and send trajectory to visualizer
+
+Add publisher code and `BUILD.bazel` under _drake/examples/viz_. 
+
+This code would create a piecewise cubic polynomial trajectory given several key points and sample points on the trajectory. The points are then packed into message and sent over to the `drake_visualizer`.
 
 {% code-tabs %}
 {% code-tabs-item title="trajectory\_publisher.cc" %}

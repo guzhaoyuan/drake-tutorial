@@ -181,7 +181,7 @@ bazel run //examples/double_pendulum_pid:run_double_pendulum_passive_exe
 
 ### Quick access to the result
 
-Added code to you repository.
+Add code to you repository.
 
 ```text
 cd drake
@@ -197,9 +197,7 @@ bazel-bin/tools/drake_visualizer &
 bazel run //examples/double_pendulum_pid:run_double_pendulum_passive_exe
 ```
 
-### Links
-
-The full code is [here](https://github.com/guzhaoyuan/drake/tree/tutorial/examples/double_pendulum_pid).
+### Extensions
 
 Similar example of parsing an Allegro hand.
 
