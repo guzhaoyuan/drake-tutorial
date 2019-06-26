@@ -1,10 +1,10 @@
 # Hello, Drake!
 
-From now on, get your hands dirty. Follow the steps here to start building your own code.
+From now on, get your hands dirty. Follow the steps to start building your own code.
 
 ### Quick access to the tutorial demos
 
-If you just want to see the result very quick, you could always skip the tutorial and use code in [my branch](https://github.com/guzhaoyuan/drake). You could do same thing in all the examples in the tutorial. Here's how.
+If you just want to see the result really quick, you could always skip the tutorial and use code on [my github branch](https://github.com/guzhaoyuan/drake). Here's how.
 
 ```text
 cd drake
@@ -14,21 +14,23 @@ git checkout tutorial
 bazel run //examples/hello:hello_exe
 ```
 
-### Create work space
+Same process applies to all the other examples.
 
-To create a simple example, we need a workspace, a C++ source file and a `BUILD.bazel` file.
+### Create workspace
+
+To run a simple example, we need a workspace that hosts C++ source file and `BUILD.bazel` file.
 
 ```text
 cd drake
 mkdir -p examples/hello
 ```
 
-### Add files to the work space
+### Add files to the workspace
 
 Create files named `BUILD.bazel` and `hello.cc` under _examples/hello_.
 
 {% hint style="info" %}
-The code is also [available on my github](https://github.com/guzhaoyuan/drake/tree/tutorial/examples/hello), you could copy the entire _hello/_ folder to your _drake/examples/_
+The code is [available here](https://github.com/guzhaoyuan/drake/tree/tutorial/examples/hello).
 {% endhint %}
 
 Add the following contents to `BUILD.bazel`.

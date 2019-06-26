@@ -1,20 +1,20 @@
-# PID control of inverted pendulum
+# PID control of double pendulum
 
-We use a double pendulum URDF as model. The task of the PID controller is to do a state feedback control and keep the double pendulum at the top. To get a sense of how the model look like, try the command:
+We use a double pendulum URDF as model. The task of the PID controller is to do state feedback control and keep the double pendulum at the top. To get a sense of how the model look like, try the command:
 
 ```bash
 bazel run //examples/double_pendulum:double_pendulum_demo
 ```
 
 {% hint style="info" %}
-The code in the tutorial is also available on my github, so you could also checkout my code directly if you found youself stuck somewhere.
+The code in the tutorial is also available on my github, so you could also checkout my code directly if you get stuck.
 {% endhint %}
 
 In this tutorial, we will go through:
 
-1. Create work space and compile.
-2. Import the double pendulum URDF as a MultibodyPlant.
-3. Create a PID controller, and connect it to MultibodyPlant.
+1. Create workspace and compile.
+2. Import the double pendulum URDF as a `MultibodyPlant`.
+3. Create a PID controller, and connect it to `MultibodyPlant`.
 4. Simulate and visualize.
 
 ### Run the demo
