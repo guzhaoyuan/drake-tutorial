@@ -1,16 +1,16 @@
 # Drake Simulation
 
-This page illustrates how the Drake Simulation works. We need to introduce 3 components that drake use. That's **Simulator**, **SceneGraph** and **Diagram**. Drake organizes these parts with the principle similar to simulink, that you could connect these blocks with Drake builder to easily construct your system.
+This page illustrates how the Drake Simulation works. We need to introduce 3 components that drake use. That's **Simulator**, **SceneGraph** and **Diagram**. Drake organizes these parts with the principles similar to Matlab Simulink, that you could connect these blocks with Drake builder to easily construct your system.
 
 ### Diagram
 
-To explain what is `Diagram`, we could look at how simulink works. Matlab Simulink is a simulation tool that everybody uses to simulate control systems. Simulink is a big graph composed of many connected systems. We could navigate into a system and explore subsystems within the system.
+To explain what is `Diagram`, we could look at how Simulink works. Matlab Simulink is a simulation tool that everybody uses to simulate control systems. Simulink is a big graph composed of many connected systems. We could navigate into a system and explore subsystems within the system.
 
-`Diagram` is the big graph in drake. `Diagram` compose of the `MultibodyPlant`, controllers and other useful blocks. Like simulink, the diagram detemines how the system is contructed, what each block is, how they are connected. Drake has `DiagramBuilder` to help glue the system blocks together, it adds system blocks into diagram and connects input and output ports of block together.
+`Diagram` is the big graph in drake. `Diagram` compose of the `MultibodyPlant`, controllers and other useful blocks. Like Simulink, the diagram determines how the system is constructed, what each block is, how they are connected. Drake has `DiagramBuilder` to help glue the system blocks together, it adds system blocks into diagram and connects input and output ports of block together.
 
 _Thinking: what is the information and data format transmitted in between the ports?_
 
-For a robotic system, there is a special system block that represents  each robot in diagram. This system is called `MultibodyPlant`. The `MultibodyPlant` is a complex class that has all the infomation and data related to robot.
+For a robotic system, there is a special system block that represents  each robot in diagram. This system is called `MultibodyPlant`. The `MultibodyPlant` is a complex class that has all the information and data related to robot.
 
 {% page-ref page="drake-multibody.md" %}
 
@@ -36,10 +36,13 @@ The `Simulator` takes in the whole system diagram and runs the simulation. Using
 
 ## Steps: from URDF to a moving robot
 
-1. Import urdf or sdf file to create the robot `MultibodyPlant`.
-2. Insert the subsystem into diagram.
-3. Connect the `MultibodyPlant` input with some other torque input block. 
-4. Register the robot into `SceneGraph` for visualization, use builder to connect the `SceneGraph` and `MultibodyPlant` for collision checking.
-5. Create `Simulator` to simulate the `Diagram`.
-6. Compile and run. Open `drake_visualizer` to see the result.
+1. Import URDF or SDF file to create the robot `MultibodyPlant` in `diagram`.
+2. Connect the `MultibodyPlant` input with torque input block, which could be controller block or signal source block.
+3. Register the robot into `SceneGraph` for visualization, use builder to connect the `SceneGraph` and `MultibodyPlant` for collision checking.
+4. Create `Simulator` to simulate the `diagram`.
+5. Compile and run. Open `drake_visualizer` to see the result.
+
+A complete example of this process could be found below.
+
+{% page-ref page="../drake-controllers/try-out-pid-controller.md" %}
 

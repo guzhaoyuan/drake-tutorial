@@ -4,11 +4,11 @@ Drake's core library has 3 big parts:
 
 ### Dynamical Systems Modeling
 
-Dynamical System modeling is actually to simulate the real world physics.
+Dynamical System modeling is to simulate the real world physics.
 
 #### System
 
-Drake's system modeling is like Matlab Simulink. Drake building up complex systems from blocks called `system`. system has input/output ports that could be connected with other system. **A `system` block can be a `diagram` or a `leafsystem`.** `leafsystem` is the minimum system while a `diagram` is composed of more `leafsystem` or `diagram`.
+Drake's system modeling works like Matlab Simulink. Drake building up complex systems from blocks called `system`. `system` has input/output ports that could be connected with other system. **A `system` block can be a `diagram` or a `leafsystem`.** `leafsystem` is the minimum system, a `diagram` is composed of multiple `leafsystem` or `diagram`.
 
 `leafsystem` functions as basic components in robotics systems, like signals, sensors, controllers, planners, etc.
 
@@ -36,13 +36,13 @@ Drake is a simulation software. The Drake `simulator` takes in the system `diagr
 
 Drake incorporates famous and useful optimization tools, for example, Gurobi, SNOPT, IPOPT, SCS, MOSEK. These tools help to solve mathematical problem in robotics, especially areas like motion planning and control.
 
-To use Mathematical Programming, there is a [very good starting point](https://colab.research.google.com/github/RussTedrake/underactuated/blob/master/src/mathematical_program_examples.ipynb) written in python. The same idea applies to C++.
+To use Mathematical Programming, there is a [very good starting point](https://colab.research.google.com/github/RussTedrake/underactuated/blob/master/src/mathematical_program_examples.ipynb) written in python. Same idea applies to C++.
 
 ### Multibody Kinematics and Dynamics
 
-Multibody means multiple rigid bodies connected in a tree structure. For robotics systems, `diagram` has a unique `system` called `MultibodyPlant`. `MultibodyPlant` internally uses rigid body tree algorithms to compute the robot kinematics dynamics jacobian, etc. 
+Multibody means multiple rigid bodies connected in a tree structure. For robotics systems, root `diagram` has a unique `leafsystem` called `MultibodyPlant`. `MultibodyPlant` internally uses rigid body tree algorithms to compute the robot kinematics dynamics jacobian, etc. 
 
-`MultibodyPlant` is a `system`. It has input/output port that could be connect to other systems like controllers and visualizer.
+`MultibodyPlant` is a `system`. So it has input/output port that could be connect to other systems like controllers and visualizer.
 
 ## Tools that Drake use
 

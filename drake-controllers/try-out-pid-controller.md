@@ -26,8 +26,6 @@ Create workspace and files.
 ```text
 cd drake
 mkdir -p examples/double_pendulum_pid
-touch BUILD.bazel
-touch run_double_pendulum_pid.cc
 ```
 
 #### Add BUILD.bazel
@@ -227,6 +225,10 @@ int main(int argc, char** argv) {
 bazel-bin/tools/drake_visualizer &
 bazel run //examples/double_pendulum_pid:run_double_pendulum_pid_exe -- --Kp_=1000 --Ki_=5 --Kd_=100
 ```
+
+### The Code Explained
+
+
 
 ### Try with your own model
 

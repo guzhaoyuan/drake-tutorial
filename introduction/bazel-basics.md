@@ -14,13 +14,13 @@ To build the whole folder:
 bazel build //...
 ```
 
-`//` means the root path of your drake folder, it equals `drake/`. `...` means build everything. It takes a while to build everything. To build all targets under a folder:
+`//` means the root path of your drake folder, it equals `drake/`. `...` means build everything. Build everything can take a long time. We could speed up building by narrow down the range. For example, to build all targets under a subfolder:
 
 ```text
 bazel build //tools/...
 ```
 
-Or to build a specific target under the folder:
+Or to build a specific target:
 
 ```text
 bazel build //tools:drake_visualizer
@@ -34,9 +34,9 @@ To run a specific executable:
 bazel run //examples/double_pendulum:double_pendulum_demo
 ```
 
-`bazel run` will detect the file modification and build first if the file is changed and then run immediately after the build. `:` indicates what's followed is an executable binary, in this case, `double_pendulum_demo`.
+`bazel run` will detect the relevant file modification. If the files are changed, this command will build first and then run immediately after the build. `:` is followed by the executable binary, in this case, `double_pendulum_demo`.
 
-Or you could execute the binary from terminal, which does not check the file change nor recompile. All the bazel binaries are put in the _drake/bazel-bin/_ folder automatically. The detailed location of an executable is defined by `BUILD.bazel`.
+Another way to run the binary is to type the binary name directly in the terminal. This way it does not check the file change nor recompile. All the bazel binaries are put in the _drake/bazel-bin/_ folder after build. The detailed location of an executable is defined by `BUILD.bazel`.
 
 ```text
 bazel-bin/examples/double_pendulum/double_pendulum_demo

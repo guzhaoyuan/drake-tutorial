@@ -4,3 +4,7 @@ The official explanation is [here](https://drake.mit.edu/doxygen_cxx/group__mult
 
 We list some examples on how the notation is used in both code and math equation.
 
+Some important variable.
+
+p - position vector, q - system state, v - system velocity, V - spacial velocity.
+
