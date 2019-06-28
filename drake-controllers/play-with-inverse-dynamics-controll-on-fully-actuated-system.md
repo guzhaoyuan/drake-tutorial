@@ -194,7 +194,6 @@ drake_cc_binary(
     name = "run_simple_arm",
     srcs = ["run_simple_arm.cc"],
     data = [
-        "//manipulation/models/simple_arm:models",
         "//manipulation/models/iiwa_description:models",
     ],
     deps = [
