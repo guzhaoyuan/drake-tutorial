@@ -26,6 +26,14 @@
 * [Inverse Dynamics Control on fully-actuated KUKA arm](drake-controllers/play-with-inverse-dynamics-controll-on-fully-actuated-system.md)
 * [Control a underactuated robot using Inverse Dynamics Controller](drake-controllers/control-a-underactuated-robot-using-inverse-dynamics-control.md)
 
+## Drake Optimization <a id="optimization"></a>
+
+* [Trajectory Optimization 1 - Direct Transcription](optimization/trajectory-optimization-1-direct-transcription.md)
+* [Trajectory Optimization 2 - Direct Collocation](optimization/trajectory-optimization-2-direct-collocation.md)
+* [Trajectory Optimization 3 - Direct Shooting](optimization/trajectory-optimization-3-direct-shooting.md)
+* [Optimized Control 1 - Quadratic Programming](optimization/optimized-control-1-quadratic-programming.md)
+* [Optimized Control 2 - Sequential Quadratic Programming](optimization/optimized-control-2-sequential-quadratic-programming.md)
+
 ## Q & A
 
 * [FAQ](q-and-a/faq.md)
