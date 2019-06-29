@@ -11,21 +11,33 @@ To create a Multibody robot, the best way is to parse robot description file lik
 
 Another way is to create the robot components using Drake API. For example, we could create [bodies](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_body.html) and connect bodies with [joints](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_joint.html). This normally works for simple model like inverted pendulum.
 
-#### Be ware of some Drake feature
+#### Be aware of some Drake features
 
-Be careful that Drake does not support mesh file for geometry collision yet. In other words, if you need to simulate collision, you would need to create your own collision model, usually some simple geometry that wraps around your mesh file. \(I found it more convenient to add collision model using Rviz, because it has a check box allows you to show the collision geometry, way easier to compare between mesh and the simple collision geometry.\)
+Be careful that Drake does not support mesh file for geometry collision yet. In other words, if you need to simulate collision, you would need to create your own collision model, usually some simple geometry that wraps around your mesh file. \(I found it more convenient to add collision model using Rviz, because it has a check box allows you to show the collision geometry, way easier to visualize and compare between mesh and the simplified collision geometry.\)
 
-If you migrate your robot from ROS, your URDF is probably using package to find the mesh file rather than using relative path. Drake support "package" which is used in ROS. However, you will at least need to change the folder with URDF files into a `package`, which means you should provide a `package.xml` file and modify the `BUILD.bazel` file to make the `bazel` build system recognize the `package`. In addition, in your code, the `package.xml` file path should be specified, to make the program recognize the package as well. There is a example for that. \(TODO: Add example here.\)
+If you migrate your robot from ROS, your URDF is probably using package to find the mesh file rather than using relative path. Drake support "package" concept used in ROS. However, you need to change the folder with URDF files into a `package`, which means you should provide a `package.xml` file and modify the `BUILD.bazel` file to make `bazel` recognize the `package`. In addition, in your code, the `package.xml` file path should be specified, so Drake could find the package as well. There is an example for that. \(TODO: Add example here.\)
 
-#### Default behavior Drake would do while parsing
+#### Default behaviors Drake would do while parsing
 
 One thing worth mentioning is that drake requires the model to have at least one `transmission` in the URDF, or it will fail to create input torque port for the plant. So if you do not have any `transmission` tag in the URDF, do create `SimpleTransmission` for each actuated joint.
 
-One more thing, every model created in drake by default is a floating base plant, with a default `world_frame` and a floating base joint connected to the `world_frame`. So if your robot should be fixed to the ground, you would create new joints in drake to specify what kind of joint the robot base is connected with the world.
+One more thing, `MultibodyPlant` has a unique body called `world_body`. Every body created in Drake by default is a floating body, unless it is connected with some other bodies. Floating body is connected to the `world_body` with a floating joint. So if your robot should be connected to the ground, you would create new joints to connect the body and world. The floating joint will be overwritten.
 
 #### [Mobilizer](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1internal_1_1_mobilizer.html)
 
 Drake uses `Mobilizer` to connect two links, it is a different concept from the traditional `Joint`.
+
+#### Model Instance Index
+
+`ModelInstanceIndex` is the ID of robots. The root `diagram` could have only one `MultibodyPlant`. So if you have more robots, they are grouped as `ModelInstanceIndex` within the same `MultibodyPlant`. Every element, like body, joint, etc, in the `MultibodyPlant` has a `ModelInstanceIndex`.
+
+`ModelInstanceIndex` 0 is world. It has only one body, the world\_body, with `BodyIndex` 0.
+
+`ModelInstanceIndex` 1 includes bodies created by Drake API with no `ModelInstanceIndex` specified.
+
+For each robot loaded from SDF/URDF, Drake will create a unique `ModelInstanceIndex` for that robot.
+
+![](../.gitbook/assets/image-from-ios-1.jpg)
 
 ### Kinematics
 
