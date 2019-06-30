@@ -26,6 +26,8 @@ Or to build a specific target:
 bazel build //tools:drake_visualizer
 ```
 
+`//tools` tells `bazel` that the path of the target is _drake/tools/_. What's followed after `:` is the target `drake_visualizer` that we want to build. `bazel` will try to find the `BUILD.bazel` file under _drake/tools/_ and build the target based on the rule defined in the `BUILD.bazel`.
+
 ### Run
 
 To run a specific executable:
@@ -36,7 +38,7 @@ bazel run //examples/double_pendulum:double_pendulum_demo
 
 `bazel run` will detect the relevant file modification. If the files are changed, this command will build first and then run immediately after the build. `:` is followed by the executable binary, in this case, `double_pendulum_demo`.
 
-Another way to run the binary is to type the binary name directly in the terminal. This way it does not check the file change nor recompile. All the bazel binaries are put in the _drake/bazel-bin/_ folder after build. The detailed location of an executable is defined by `BUILD.bazel`.
+Another way to run the binary is to type the binary name directly in the terminal. It does not check the file change nor recompile. All the `bazel` binaries are put in the _drake/bazel-bin/_ folder after being built. The detailed location of an executable is defined by `BUILD.bazel`.
 
 ```text
 bazel-bin/examples/double_pendulum/double_pendulum_demo
@@ -56,9 +58,9 @@ bazel test //common:polynomial_test
 
 Commands in this page are enough to handle most cases. 
 
-For advanced bazel usage, check out the [Drake document of bazel](https://drake.mit.edu/bazel.html#using-bazel). 
+For advanced `bazel` usage, check out the [Drake document of bazel](https://drake.mit.edu/bazel.html#using-bazel). 
 
-To learn more about bazel, please refer to [bazel official document](https://docs.bazel.build/versions/master/bazel-overview.html).
+To learn more about `bazel`, please refer to [bazel official document](https://docs.bazel.build/versions/master/bazel-overview.html).
 
 
 

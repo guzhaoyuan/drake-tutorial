@@ -1,15 +1,16 @@
 # Drake Multibody
 
-Multibody is the highlight of Drake. It represents a robot of a Multibody tree, and exposes APIs that computes robot mathematics including kinematics, dynamics, jacobian, etc.  
-A very good material to start read is [Drake Documentation about Multibody](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_multibody_plant.html#details). It show how Multibody is constructed and how it fit with other drake components.
+Multibody is the highlight of Drake. It represents a robot in a tree of bodies. `MultibodyPlant` exposes APIs that compute robot mathematics including the kinematics, the dynamics, jacobian, etc. 
+
+A good reading material to understand Multibody is [Drake's documentation of Multibody](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_multibody_plant.html#details). It show how `MultibodyPlant` is constructed and how it fit with other drake components.
 
 ### Robot Modeling
 
 #### Create Multibody
 
-To create a Multibody robot, the best way is to parse robot description file like URDF or SDF. Drake could read URDF or SDF using a `parser`. The `parser` use [tinyxml2](https://github.com/leethomason/tinyxml2) library to parse the XML file. It would iteratively parse each link, joint, transmission and generate a Multibody tree structure as described in the XML file.
+To create a Multibody robot, the best way is to parse robot description file such as URDF or SDF. Drake could read URDF or SDF using a `parser`. The `parser` use [tinyxml2](https://github.com/leethomason/tinyxml2) library to parse the XML file. It would iteratively parse each link, joint, transmission and generate a Multibody tree with the same structure described as in the XML file.
 
-Another way is to create the robot components using Drake API. For example, we could create [bodies](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_body.html) and connect bodies with [joints](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_joint.html). This normally works for simple model like inverted pendulum.
+Another way to create the robot components is through `MultibodyPlant` API. For example, we could create [bodies](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_body.html) and connect bodies with [joints](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_joint.html). This normally works for simple models like inverted pendulum.
 
 #### Be aware of some Drake features
 

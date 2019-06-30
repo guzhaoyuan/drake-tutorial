@@ -1,6 +1,6 @@
 # Drake Simulation
 
-This page illustrates how the Drake Simulation works. We need to introduce 3 components that drake uses. They are **Simulator**, **SceneGraph** and **Diagram**.
+This page illustrates how the Drake Simulation works. We will introduce 3 components that drake uses. They are **Simulator**, **SceneGraph** and **Diagram**.
 
 ### Diagram
 
