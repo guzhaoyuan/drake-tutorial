@@ -4,9 +4,9 @@ This page illustrates how the Drake Simulation works. We need to introduce 3 com
 
 ### Diagram
 
-To explain what a `diagram` is, we could look at how Matlab Simulink works. Matlab Simulink is a simulation tool. Simulink's main graph is composed of connected systems. A complex system can host multiple subsystems.
+To explain what a `diagram` is, we could look at how Matlab Simulink works. Matlab Simulink is a simulation tool. Simulink's main graph is composed of connected systems. A complex system can host multiple subsystems. All these subsystems connect in some way to form the entire system.
 
-`diagram` is the main graph of drake. `diagram` is composed of systems like `MultibodyPlant`, controllers and other useful blocks. Like Simulink, the `diagram` determines how the system is constructed, what each block is, how they are connected. Drake has a`DiagramBuilder` class to help glue the system blocks together, it adds system blocks into diagram and connects input and output ports of block together.
+`diagram` is the main graph of Drake. `diagram` is composed of systems like `MultibodyPlant`, controllers and other useful blocks. Like Simulink, the `diagram` determines how the system is constructed, what each block is, how they are connected. Drake has a`DiagramBuilder` class to help glue the system blocks together, it adds system blocks into diagram and connects input and output ports of block together.
 
 _Thinking: what is the information and data format transmitted in between the ports?_
 
