@@ -289,6 +289,18 @@ drake_cc_binary(
 
 ### Run the demo
 
+To get the demo working, a DARE solver is required. We could get the solver by:
+
+```text
+git remote add weiqiao https://github.com/weiqiao/drake.git
+git fetch weiqiao
+git cherry-pick e777b31f04ec1d176a33d018669f62e9d3924e72
+git cherry-pick aee6342eb01b142f5f109c6dba8eafa8f5994601
+git cherry-pick a6f90a80f6842a67fe596c748e5b71eb56a7500a
+```
+
+Then run the demo:
+
 ```text
 bazel run //examples/multibody/cart_pole:cart_pole_lqr
 ```
