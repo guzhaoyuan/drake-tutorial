@@ -8,7 +8,7 @@ Dynamical System modeling is to simulate the real world physics.
 
 #### System
 
-Drake's system modeling works like Matlab Simulink. Drake building up complex systems from blocks called `system`. `system` has input/output ports that could be connected with other system. **A `system` block can be a `diagram` or a `leafsystem`.** `leafsystem` is the minimum system, a `diagram` is composed of multiple `leafsystem` or `diagram`.
+Drake's system modeling works like Matlab Simulink. Drake constructs complex systems from blocks called `system`. `system` has input/output ports that could be connected with other system. **A `system` block can be a `diagram` or a `leafsystem`.** `leafsystem` is the minimum build block and a `diagram` is composed of multiple `leafsystem` or `diagram`.
 
 `leafsystem` functions as basic components in robotics systems, like signals, sensors, controllers, planners, etc.
 
