@@ -1,4 +1,4 @@
-# Control Real KUKA arm
+# \[WIP\] Control Real KUKA arm
 
 Data is transmitted through LCM in Drake. To control a real robot, control signal from Drake should be translated from LCM to robot language, which could be EtherCat, Serial, PWM signals, etc. The translator is the driver we need for each robot we want to drive.
 
