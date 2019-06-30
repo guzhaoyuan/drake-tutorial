@@ -2,6 +2,12 @@
 
 ![Control KUKA back to home position with inverse dynamics controller](../.gitbook/assets/kuka_idc.gif)
 
+### Why Inverse Dynamics Control, why not PID?
+
+Why not use PID controller? That's a good question. If the robot's joints are decouples and using PID controller for each joint is the way to go. All you need is model-free parameters that corresponds to each joint. In my case, I am simulating a humanoid robot with two arms, the joints and links are deeply coupled that model-free method does not work well here.
+
+The [Inverse Dynamics Controller](https://drake.mit.edu/doxygen_cxx/classdrake_1_1systems_1_1controllers_1_1_inverse_dynamics_controller.html#details) is a system block that takes in the desired acceleration and spit out whatever the generalized control force is. Using Inverse Dynamics Controller is easy in Drake because `MultibodyPlant` does all the inverse dynamics calculation for you.
+
 ### Code
 
 Create a folder _drake/examples/kuka\_iiwa\_arm\_idc/_
