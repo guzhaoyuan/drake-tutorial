@@ -1,10 +1,8 @@
 # Drake Notation
 
-The official explanation is [here](https://drake.mit.edu/doxygen_cxx/group__multibody__notation.html).
+Drake notation is an incredible way of representing variables that could be written down on paper and easily translated into code.
 
-We list some examples on how the notation is used in both code and math equation.
+As a user, it is important to understand the notation in Drake to be able to understand the code.
 
-Some important variable.
-
-p - position vector, q - system state, v - system velocity, V - spacial velocity.
+The official description is [here](https://drake.mit.edu/doxygen_cxx/group__multibody__notation.html).
 
