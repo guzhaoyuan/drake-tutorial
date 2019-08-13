@@ -1,2 +1,2 @@
-# Optimized Control 2 - Sequential Quadratic Programming
+# \[WIP\] Optimal Control 2 - Sequential Quadratic Programming
 

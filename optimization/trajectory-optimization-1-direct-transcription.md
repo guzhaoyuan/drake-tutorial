@@ -1,2 +1,2 @@
-# Trajectory Optimization 1 - Direct Transcription
+# \[WIP\] Trajectory Optimization 1 - Direct Transcription
 

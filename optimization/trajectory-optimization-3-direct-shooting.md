@@ -1,2 +1,2 @@
-# Trajectory Optimization 3 - Direct Shooting
+# \[WIP\] Trajectory Optimization 3 - Direct Shooting
 

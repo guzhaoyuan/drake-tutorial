@@ -28,11 +28,11 @@
 
 ## Drake Optimization <a id="optimization"></a>
 
-* [Trajectory Optimization 1 - Direct Transcription](optimization/trajectory-optimization-1-direct-transcription.md)
-* [Trajectory Optimization 2 - Direct Collocation](optimization/trajectory-optimization-2-direct-collocation.md)
-* [Trajectory Optimization 3 - Direct Shooting](optimization/trajectory-optimization-3-direct-shooting.md)
-* [Optimized Control 1 - Quadratic Programming](optimization/optimized-control-1-quadratic-programming.md)
-* [Optimized Control 2 - Sequential Quadratic Programming](optimization/optimized-control-2-sequential-quadratic-programming.md)
+* [\[WIP\] Trajectory Optimization 1 - Direct Transcription](optimization/trajectory-optimization-1-direct-transcription.md)
+* [\[WIP\] Trajectory Optimization 2 - Direct Collocation](optimization/trajectory-optimization-2-direct-collocation.md)
+* [\[WIP\] Trajectory Optimization 3 - Direct Shooting](optimization/trajectory-optimization-3-direct-shooting.md)
+* [\[WIP\] Optimal Control 1 - Quadratic Programming](optimization/optimized-control-1-quadratic-programming.md)
+* [\[WIP\] Optimal Control 2 - Sequential Quadratic Programming](optimization/optimized-control-2-sequential-quadratic-programming.md)
 
 ## Q & A
 

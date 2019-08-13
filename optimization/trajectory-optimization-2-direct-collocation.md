@@ -1,2 +1,2 @@
-# Trajectory Optimization 2 - Direct Collocation
+# \[WIP\] Trajectory Optimization 2 - Direct Collocation
 
