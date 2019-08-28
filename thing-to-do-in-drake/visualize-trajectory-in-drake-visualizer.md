@@ -1,6 +1,6 @@
 # Visualize trajectory
 
-Drake does not support visualizing the trajectory yet. To show any customized data format, we need a plugin.
+Drake does not support visualizing the trajectory yet. To show any customized data format in visualizer, we need a plugin.
 
 ![Visualize trajectory](../.gitbook/assets/screenshot-from-2019-06-25-15-13-33.png)
 
@@ -341,4 +341,6 @@ Run the trajectory publisher.
 ```text
 bazel run //examples/viz:trajectory_publisher
 ```
+
+
 
