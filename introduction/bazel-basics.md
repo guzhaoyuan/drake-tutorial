@@ -46,6 +46,23 @@ bazel-bin/examples/double_pendulum/double_pendulum_demo
 
 How to find where is the executable? Well, check the `BUILD.bazel` file and find the `drake_cc_binary` item. The executable sits in the `name` line.
 
+### Debug
+
+using gdb to debug when you find errors like segmentation fault comes handy. We could compile the executable with gdb by:
+
+```text
+bazel build --compilation_mode=dbg //examples/multibody/inclined_plane_with_body
+```
+
+Then you could run the executable with gdb inspecting the variables and function calls. When there is a error and program crashes, we could trace back to where it went wrong.
+
+```text
+gdb ./bazel-bin/examples/multibody/inclined_plane_with_body
+(gdb) run # execute the program and record the runtime stack data
+(gdb) bt # back trace to where the program crashes and figure the problem
+(gdb) quit
+```
+
 ### Test
 
 This command applies when you wrote your own function and test cases. Then you could test your cases by:
