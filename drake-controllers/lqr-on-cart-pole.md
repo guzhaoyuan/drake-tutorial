@@ -113,8 +113,7 @@ Get the code from my repo, we need to modify the original SDF file to get a full
 </sdf>
 ```
 
-{% code-tabs %}
-{% code-tabs-item title="cart\_pole\_lqr.cc" %}
+{% code title="cart\_pole\_lqr.cc" %}
 ```cpp
 ///
 /// This file use a fully actuated cart pole model to track a specific state
@@ -257,13 +256,11 @@ int main(int argc, char** argv) {
   return 0;
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Add the following lines to `BUILD.bazel`.
 
-{% code-tabs %}
-{% code-tabs-item title="BUILD.bazel" %}
+{% code title="BUILD.bazel" %}
 ```text
 drake_cc_binary(
     name = "cart_pole_lqr",
@@ -284,8 +281,7 @@ drake_cc_binary(
     ],
 )
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ### Run the demo
 

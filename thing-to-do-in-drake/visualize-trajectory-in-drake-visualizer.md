@@ -8,8 +8,7 @@ Drake does not support visualizing the trajectory yet. To show any customized da
 
 You could place your plugin anywhere as long as they load correctly. I would put the plugin file `show_trajectory.py` under _drake/tools/workspace/drake\_visualizer/plugin/_
 
-{% code-tabs %}
-{% code-tabs-item title="show\_trajectory.py" %}
+{% code title="show\_trajectory.py" %}
 ```python
 # Note that this script runs in the main context of drake-visulizer,
 # where many modules and variables already exist in the global scope.
@@ -148,8 +147,7 @@ def init_visualizer():
 if __name__ == "__main__":
     frame_viz = init_visualizer()
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 The plugin could be loaded by the `drake_visualizer`, it will call the `_handle_message` every time it gets a message data. The message data is defined as `map{name, transformation}`. The plugin will display all the points as frames and connect the points with arrows.
 
@@ -159,8 +157,7 @@ Add publisher code and `BUILD.bazel` under _drake/examples/viz_.
 
 This code would create a piecewise cubic polynomial trajectory given several key points and sample points on the trajectory. The points are then packed into message and sent over to the `drake_visualizer`.
 
-{% code-tabs %}
-{% code-tabs-item title="trajectory\_publisher.cc" %}
+{% code title="trajectory\_publisher.cc" %}
 ```cpp
 /// @file
 ///
@@ -293,11 +290,9 @@ int main(int argc, char* argv[]) {
 }
 
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
-{% code-tabs %}
-{% code-tabs-item title="BUILD.bazel" %}
+{% code title="BUILD.bazel" %}
 ```text
 drake_cc_binary(
     name = "trajectory_publisher",
@@ -324,8 +319,7 @@ drake_cc_binary(
     ],
 )
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ### Run the demo
 

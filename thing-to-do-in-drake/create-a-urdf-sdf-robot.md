@@ -18,8 +18,7 @@ curl -o examples/double_pendulum_pid/models/double_pendulum.sdf https://raw.gith
 
 #### Create the source file
 
-{% code-tabs %}
-{% code-tabs-item title="BUILD.bazel" %}
+{% code title="BUILD.bazel" %}
 ```text
 load(
     "@drake//tools/skylark:drake_cc.bzl",
@@ -51,11 +50,9 @@ drake_cc_binary(
 
 install_data()
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
-{% code-tabs %}
-{% code-tabs-item title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run\_double\_pendulum\_passive.cc" %}
 ```cpp
 ///
 /// @brief  An SDF based double pendulum example.
@@ -167,8 +164,7 @@ int main(int argc, char** argv) {
   return 0;
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 #### Run the code
 
@@ -179,58 +175,47 @@ bazel run //examples/double_pendulum_pid:run_double_pendulum_passive_exe
 
 ### The Code Explained
 
-{% code-tabs %}
-{% code-tabs-item title="BUILD.bazel" %}
+{% code title="BUILD.bazel" %}
 ```text
 install_data()
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 The `install_data()` copy the items under the `data` tag to the build folder so when the program actually runs, it will be able to access the data files.
 
-{% code-tabs %}
-{% code-tabs-item title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run\_double\_pendulum\_passive.cc" %}
 ```cpp
 DRAKE_DEMAND(FLAGS_simulation_time > 0);
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 `DRAKE_DEMAND` is an assertion that ensures that the FLAGS\_simulation\_time is larger than zero. If not fulfilled, the program will stop throwing an exception. We could always use `DRAKE_DEMAND` to verify data correctness. 
 
-{% code-tabs %}
-{% code-tabs-item title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run\_double\_pendulum\_passive.cc" %}
 ```cpp
 systems::DiagramBuilder<double> builder;
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Create a `DiagramBuilder` that helps to add `system` blocks and connect different systems.
 
-{% code-tabs %}
-{% code-tabs-item title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run\_double\_pendulum\_passive.cc" %}
 ```cpp
 geometry::SceneGraph<double>& scene_graph =
     *builder.AddSystem<geometry::SceneGraph>();
 scene_graph.set_name("scene_graph");
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Add a `SceneGraph<double>` to the `diagram` using `builder`. Note that `system` have we added was recorded and stored. The `diagram` and all the `system` are created when we call:
 
-{% code-tabs %}
-{% code-tabs-item title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run\_double\_pendulum\_passive.cc" %}
 ```cpp
 auto diagram = builder.Build();
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
-{% code-tabs %}
-{% code-tabs-item title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run\_double\_pendulum\_passive.cc" %}
 ```cpp
 // Load and parse double pendulum SDF from file into a tree.
 multibody::MultibodyPlant<double>* dp =
@@ -238,13 +223,11 @@ multibody::MultibodyPlant<double>* dp =
 dp->set_name("plant");
 dp->RegisterAsSourceForSceneGraph(&scene_graph);
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Create a `MultibodyPlant<double>` that represents the double pendulum. Then we set its name and connect it to `SceneGraph` so we could see the model later in simulation.
 
-{% code-tabs %}
-{% code-tabs-item title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run\_double\_pendulum\_passive.cc" %}
 ```cpp
 multibody::Parser parser(dp);
 const std::string sdf_path = FindResourceOrThrow(kDoublePendulumSdfPath);
@@ -252,13 +235,11 @@ multibody::ModelInstanceIndex plant_model_instance_index =
   parser.AddModelFromFile(sdf_path);
 (void)plant_model_instance_index;
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Here we create a parser that actually create the model. It will parse the provided URDF or SDF file line by line, and call Drake functions internally to create a multibody in tree structure.
 
-{% code-tabs %}
-{% code-tabs-item title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run\_double\_pendulum\_passive.cc" %}
 ```cpp
 // Weld the base link to world frame with no rotation.
 const auto& root_link = dp->GetBodyByName("base");
@@ -270,13 +251,11 @@ dp->Finalize();
 
 DRAKE_DEMAND(!!dp->get_source_id());
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 We then create a fixed joint `WeldJoint` between the robot base and the world frame. So the robot base always stay fixed on the ground. Once the MultibodyPlant is finished, we call `dp->Finalize()` so we seal the plant, making sure the robot model is not mutable during simulation. The `DRAKE_DEMAND` makes sure that the MultibodyPlant is created successfully.
 
-{% code-tabs %}
-{% code-tabs-item title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run\_double\_pendulum\_passive.cc" %}
 ```cpp
 builder.Connect(
   dp->get_geometry_poses_output_port(),
@@ -286,13 +265,11 @@ builder.Connect(scene_graph.get_query_output_port(),
 
 geometry::ConnectDrakeVisualizer(&builder, scene_graph);
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 After the plant is created. We use builder again to connect the `MultibodyPlant` system with other blocks in the `diagram`. `scene_graph` receive the `MultibodyPlant` current state and compute the collision in the system. It then reports all the collision infomation to the `MultibodyPlant` so `MultibodyPlant` will decide the contact force according to the contact body material.
 
-{% code-tabs %}
-{% code-tabs-item title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run\_double\_pendulum\_passive.cc" %}
 ```cpp
 auto diagram = builder.Build();
 std::unique_ptr<systems::Context<double>> diagram_context =
@@ -302,13 +279,11 @@ std::unique_ptr<systems::Context<double>> diagram_context =
 systems::Context<double>& plant_context =
   diagram->GetMutableSubsystemContext(*dp, diagram_context.get());
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Create the `diagram`  and `diagram_context`. Get the `plant_context` by getting subsystem context from the `diagram_context`.
 
-{% code-tabs %}
-{% code-tabs-item title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run\_double\_pendulum\_passive.cc" %}
 ```cpp
 // Set init position.
 Eigen::VectorXd positions = Eigen::VectorXd::Zero(2);
@@ -316,13 +291,11 @@ positions[0] = 0.1;
 positions[1] = 0.4;
 dp->SetPositions(&plant_context, positions);
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Set the initial position of the robot away from the home position.
 
-{% code-tabs %}
-{% code-tabs-item title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run\_double\_pendulum\_passive.cc" %}
 ```cpp
 systems::Simulator<double> simulator(*diagram, std::move(diagram_context));
 simulator.set_publish_every_time_step(true);
@@ -330,8 +303,7 @@ simulator.set_target_realtime_rate(FLAGS_target_realtime_rate);
 simulator.Initialize();
 simulator.AdvanceTo(FLAGS_simulation_time);
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Create a `Simulator` , set the simulation parameter. Then actually do the simulation by advance to the desired time.
 

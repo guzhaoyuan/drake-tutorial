@@ -32,8 +32,7 @@ mkdir -p examples/double_pendulum_pid
 
 To make the work space compile, we add the following to `BUILD.bazel`
 
-{% code-tabs %}
-{% code-tabs-item title="BUILD.bazel" %}
+{% code title="BUILD.bazel" %}
 ```text
 load(
     "@drake//tools/skylark:drake_cc.bzl",
@@ -68,15 +67,13 @@ drake_cc_binary(
 
 install_data()
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 #### Add source file
 
 And add the _run\_double\_pendulum\_pid.cc_ file
 
-{% code-tabs %}
-{% code-tabs-item title="run\_double\_pendulum\_pid.cc" %}
+{% code title="run\_double\_pendulum\_pid.cc" %}
 ```cpp
 ///
 /// @brief  An SDF based double pendulum example.
@@ -216,8 +213,7 @@ int main(int argc, char** argv) {
   return 0;
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 #### Simulate and visualize
 

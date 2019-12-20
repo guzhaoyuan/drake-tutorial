@@ -19,8 +19,7 @@ mkdir -p examples/kuka_iiwa_arm_idc
 
 Put the following file into the folder.
 
-{% code-tabs %}
-{% code-tabs-item title="run\_kuka\_idc\_demo.cc" %}
+{% code title="run\_kuka\_idc\_demo.cc" %}
 ```cpp
 /// @file
 ///
@@ -178,13 +177,11 @@ int main(int argc, char* argv[]) {
   return 0;
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 Add `BUILD.bazel`
 
-{% code-tabs %}
-{% code-tabs-item title="BUILD.bazel" %}
+{% code title="BUILD.bazel" %}
 ```text
 load(
     "@drake//tools/skylark:drake_cc.bzl",
@@ -216,8 +213,7 @@ drake_cc_binary(
     ],
 )
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ### Run demo
 
