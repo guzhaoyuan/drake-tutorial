@@ -12,3 +12,5 @@ To contribute, contact the author [github@guzhaoyuan](https://github.com/guzhaoy
 
 If you have any questions, please [file an issue](https://github.com/guzhaoyuan/drake-tutorial/issues), to help improve the document.
 
+Drake started to release monthly since 2020 and the development moves fast. This tutorial is based on release [v0.20.0](https://github.com/RobotLocomotion/drake/releases/tag/v0.20.0).
+

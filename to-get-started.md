@@ -1,6 +1,6 @@
 # To get started
 
-You are excited to simulate your beloved robot with this brand new robotics software. You want to solve the robot kinematics and dynamics. You want to do advanced motion planning because you heard Boston Dynamics uses Quadratic Programming to do back flips. You are in the right place, Drake is the software to get you started.
+You are excited to simulate your beloved robot with this brand-new robotics software. You want to solve the robot kinematics and dynamics. You want to do advanced motion planning because you heard Boston Dynamics uses Quadratic Programming to do backflips. You are in the right place, Drake is the software to get you started.
 
 ### Install drake
 
