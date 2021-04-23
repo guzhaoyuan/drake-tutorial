@@ -14,7 +14,11 @@ To build the whole folder:
 bazel build //...
 ```
 
-`//` means the root path of your drake folder, it equals `drake/`. `...` means build everything. Build everything can take a long time. We could speed up building by narrow down the range. For example, to build all targets under a subfolder:
+{% hint style="warning" %}
+`bazel build` takes all available CPUs to compile. The compilation would fail if not enough memory is available. To [limit the number of concurrent tasks](https://docs.bazel.build/versions/master/user-manual.html#flag--jobs), use `bazel build //... --jobs=n` , where n is the number of CPUs used.
+{% endhint %}
+
+`//` means the root path of your drake folder, it equals `drake/`. `...` means build everything. Build everything can take a long time. We can speed up the building by narrowing down to a subfolder. For example, to build all targets under a subfolder:
 
 ```text
 bazel build //tools/...
@@ -26,7 +30,7 @@ Or to build a specific target:
 bazel build //tools:drake_visualizer
 ```
 
-`//tools` tells `bazel` that the path of the target is _drake/tools/_. What's followed after `:` is the target `drake_visualizer` that we want to build. `bazel` will try to find the `BUILD.bazel` file under _drake/tools/_ and build the target based on the rule defined in the `BUILD.bazel`.
+`//tools` tells `bazel` that the path of the target is _drake/tools/_. What's followed after `:` is the target `drake_visualizer`. `bazel` will find the `BUILD.bazel` file under _drake/tools/_ and build the target based on the rules defined in the `BUILD.bazel`.
 
 ### Run
 
