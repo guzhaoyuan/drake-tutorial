@@ -12,11 +12,11 @@ To download and install Drake, follow these [installation instructions](https://
 Note: Drake is compiled with the [**bazel**](https://bazel.build/) build tool \(developed by Google\). It has similar functions as CMake.
 {% endhint %}
 
-### Try the following simulation examples
+### After the installation, try the following simulation examples
 
-#### Simulate a ball dropping onto a inclined plane
+#### Simulate a ball dropping onto an inclined plane
 
-This [README](https://github.com/RobotLocomotion/drake/tree/master/examples/multibody/inclined_plane_with_body) helps you simulate a ball dropping from a certain height onto an inclined plane, and sliding/rolling down the plane.
+This [README](https://github.com/RobotLocomotion/drake/tree/master/examples/multibody/inclined_plane_with_body) helps you simulate a ball dropping from a certain height onto an inclined plane, then sliding/rolling down the plane.
 
 #### Visualize a KUKA arm
 

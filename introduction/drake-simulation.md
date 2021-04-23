@@ -1,16 +1,16 @@
 # Drake Simulation
 
-This page illustrates how the Drake Simulation works. We will introduce 3 components that drake uses. They are **Simulator**, **SceneGraph** and **Diagram**.
+This page illustrates how the Drake Simulation works. We will introduce 3 components that drake uses. They are **Simulator**, **SceneGraph**, and **Diagram**.
 
 ### Diagram
 
 To explain what a `diagram` is, we could look at how Matlab Simulink works. Matlab Simulink is a simulation tool. Simulink's main graph is composed of connected systems. A complex system can host multiple subsystems. All these subsystems connect in some way to form the entire system.
 
-`diagram` is the main graph of Drake. `diagram` is composed of systems like `MultibodyPlant`, controllers and other useful blocks. Like Simulink, the `diagram` determines how the system is constructed, what each block is, how they are connected. Drake has a`DiagramBuilder` class to help glue the system blocks together, it adds system blocks into diagram and connects input and output ports of block together.
+`diagram` is the main graph of Drake. `diagram` is composed of systems like `MultibodyPlant`, controllers and other useful blocks. Like Simulink, the `diagram` determines how the system is constructed, what each block is, and how they are connected. Drake has a`DiagramBuilder` class to help glue the system blocks together. It adds system blocks into the `diagram` and connects input and output ports of blocks together.
 
-_Thinking: what is the information and data format transmitted in between the ports?_
+_Thinking: what are the information and data format that's being transmitted between the ports?_
 
-For a robotic system, there is a special system block that represents  all the robots in `diagram`. This system is called `MultibodyPlant`. The `MultibodyPlant` is a huge class that has all the parameters and data related to robot.
+For a robotic system, there is a special system block that represents  all the robots in `diagram`. This system is called `MultibodyPlant`. The `MultibodyPlant` is a huge class containing all the parameters and data related to the robots.
 
 {% page-ref page="drake-multibody.md" %}
 
@@ -22,7 +22,7 @@ For a robotic system, there is a special system block that represents  all the r
 
 Before simulation, `SceneGraph` is initiated and connected to `MultibodyPlant`. 
 
-During simulation, `SceneGraph` would give the information of whether two objects collide and what is the distance between two object, given the state input from `MultibodyPlant`. Then the `MultibodyPlant` decides whether the collision is a soft contact or a fierce crash, how much force is generated in between objects given the collision information.
+During simulation, `SceneGraph` would give the information of whether two objects collide and what is the distance between two objects, given the state input from `MultibodyPlant`. Then the `MultibodyPlant` decides whether the collision is a soft contact or a fierce crash, how much force is generated in between objects given the collision information.
 
 #### Visualization
 
