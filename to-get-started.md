@@ -49,5 +49,5 @@ Ideally, you now have learned how to visualize and run a simulation. You are rea
 ### Useful links
 
 * [Drake Doxygen](http://drake.mit.edu/doxygen_cxx/index.html#://) \(Web-based documentation for C++ source code\)
-* [Underactuated Robotics Online Textbook](http://underactuated.csail.mit.edu/underactuated.html) \(Class teaches by Russ Tedrake that heavily uses Drake\)
+* [Underactuated Robotics Online Textbook](http://underactuated.csail.mit.edu/underactuated.html) \(Class taught by Prof. Russ Tedrake that heavily uses Drake\)
 
