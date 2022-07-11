@@ -8,7 +8,7 @@ A good reading material to understand Multibody is [Drake's documentation of Mul
 
 #### Create Multibody
 
-To create a Multibody robot, the best way is to parse robot description file such as URDF or SDF. Drake could read URDF or SDF using a `parser`. The `parser` use [tinyxml2](https://github.com/leethomason/tinyxml2) library to parse the XML file. It would iteratively parse each link, joint, transmission and generate a Multibody tree with the same structure described as in the XML file.
+To create a Multibody robot, the best way is to parse robot description file such as URDF or SDF. Drake could read URDF or SDF using a `parser`. The `parser` uses [tinyxml2](https://github.com/leethomason/tinyxml2) library to parse the XML file. It would iteratively parse each link, joint, transmission and generate a Multibody tree with the same structure described as in the XML file.
 
 Another way to create the robot components is through `MultibodyPlant` API. For example, we could create [bodies](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_body.html) and connect bodies with [joints](https://drake.mit.edu/doxygen_cxx/classdrake_1_1multibody_1_1_joint.html). This normally works for simple models like inverted pendulum.
 
