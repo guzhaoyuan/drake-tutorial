@@ -1,12 +1,12 @@
 # LQR on Cart Pole
 
-Linear Quadratic Regulator \(LQR\) is an optimal control method. Cart-Pole is a canonical model with one prismatic joint connecting the ground and cart and one revolute joint connect the cart and bar.
+Linear Quadratic Regulator (LQR) is an optimal control method. Cart-Pole is a canonical model with one prismatic joint connecting the ground and cart and one revolute joint connect the cart and bar.
 
-![Cart-Pole tracking state](../.gitbook/assets/cart_pole_tracking.gif)
+![Cart-Pole tracking state](../.gitbook/assets/cart\_pole\_tracking.gif)
 
 ### A brief explanation of LQR
 
-LQR controller is a gain matrix K, which maps income system state to control. The gain matrix K comes from the solution of Riccati Equation. 
+LQR controller is a gain matrix K, which maps income system state to control. The gain matrix K comes from the solution of Riccati Equation.&#x20;
 
 Optimal control is all about minimizing cost. We formulate the state tracking control problem into a cost minimizing problem, which is equal to solve the Riccati Equation. What's amazing is, the solution of Riccati Equation gives us the optimal controller that generates the minimum cost.
 
@@ -113,7 +113,7 @@ Get the code from my repo, we need to modify the original SDF file to get a full
 </sdf>
 ```
 
-{% code title="cart\_pole\_lqr.cc" %}
+{% code title="cart_pole_lqr.cc" %}
 ```cpp
 ///
 /// This file use a fully actuated cart pole model to track a specific state
@@ -261,7 +261,7 @@ int main(int argc, char** argv) {
 Add the following lines to `BUILD.bazel`.
 
 {% code title="BUILD.bazel" %}
-```text
+```
 drake_cc_binary(
     name = "cart_pole_lqr",
     srcs = ["cart_pole_lqr.cc"],
@@ -287,7 +287,7 @@ drake_cc_binary(
 
 To get the demo working, a DARE solver is required. We could get the solver by:
 
-```text
+```
 git remote add weiqiao https://github.com/weiqiao/drake.git
 git fetch weiqiao
 git cherry-pick e777b31f04ec1d176a33d018669f62e9d3924e72
@@ -297,7 +297,7 @@ git cherry-pick a6f90a80f6842a67fe596c748e5b71eb56a7500a
 
 Then run the demo:
 
-```text
+```
 bazel run //examples/multibody/cart_pole:cart_pole_lqr
 ```
 
@@ -308,4 +308,3 @@ bazel run //examples/multibody/cart_pole:cart_pole_lqr
 LQR Controller in Drake is an affine system. Because LQR is about error dynamics, so the gain matrix K of LQR has to get the state error, and output the control error. With affine system, LQR could get state directly and output control directly, the conversion to state error and convert back to control is handled within the affine system.
 
 Indexing is very important in Drake. A correct indexing is required to get the system work correctly. LQR is using Drake Index on control rather than generalized tree index.
-

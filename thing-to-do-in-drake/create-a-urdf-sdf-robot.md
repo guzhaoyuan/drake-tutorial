@@ -10,7 +10,7 @@ The code is also [available on my github](https://github.com/guzhaoyuan/drake/tr
 
 #### Create workspace & get model
 
-```text
+```
 cd drake
 mkdir -p examples/double_pendulum_pid/models
 curl -o examples/double_pendulum_pid/models/double_pendulum.sdf https://raw.githubusercontent.com/guzhaoyuan/drake/tutorial/examples/double_pendulum_pid/models/double_pendulum.sdf
@@ -19,7 +19,7 @@ curl -o examples/double_pendulum_pid/models/double_pendulum.sdf https://raw.gith
 #### Create the source file
 
 {% code title="BUILD.bazel" %}
-```text
+```
 load(
     "@drake//tools/skylark:drake_cc.bzl",
     "drake_cc_binary",
@@ -52,7 +52,7 @@ install_data()
 ```
 {% endcode %}
 
-{% code title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run_double_pendulum_passive.cc" %}
 ```cpp
 ///
 /// @brief  An SDF based double pendulum example.
@@ -168,7 +168,7 @@ int main(int argc, char** argv) {
 
 #### Run the code
 
-```text
+```
 bazel-bin/tools/drake_visualizer &
 bazel run //examples/double_pendulum_pid:run_double_pendulum_passive_exe
 ```
@@ -176,22 +176,22 @@ bazel run //examples/double_pendulum_pid:run_double_pendulum_passive_exe
 ### The Code Explained
 
 {% code title="BUILD.bazel" %}
-```text
+```
 install_data()
 ```
 {% endcode %}
 
 The `install_data()` copy the items under the `data` tag to the build folder so when the program actually runs, it will be able to access the data files.
 
-{% code title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run_double_pendulum_passive.cc" %}
 ```cpp
 DRAKE_DEMAND(FLAGS_simulation_time > 0);
 ```
 {% endcode %}
 
-`DRAKE_DEMAND` is an assertion that ensures that the FLAGS\_simulation\_time is larger than zero. If not fulfilled, the program will stop throwing an exception. We could always use `DRAKE_DEMAND` to verify data correctness. 
+`DRAKE_DEMAND` is an assertion that ensures that the FLAGS\_simulation\_time is larger than zero. If not fulfilled, the program will stop throwing an exception. We could always use `DRAKE_DEMAND` to verify data correctness.&#x20;
 
-{% code title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run_double_pendulum_passive.cc" %}
 ```cpp
 systems::DiagramBuilder<double> builder;
 ```
@@ -199,7 +199,7 @@ systems::DiagramBuilder<double> builder;
 
 Create a `DiagramBuilder` that helps to add `system` blocks and connect different systems.
 
-{% code title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run_double_pendulum_passive.cc" %}
 ```cpp
 geometry::SceneGraph<double>& scene_graph =
     *builder.AddSystem<geometry::SceneGraph>();
@@ -209,13 +209,13 @@ scene_graph.set_name("scene_graph");
 
 Add a `SceneGraph<double>` to the `diagram` using `builder`. Note that `system` have we added was recorded and stored. The `diagram` and all the `system` are created when we call:
 
-{% code title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run_double_pendulum_passive.cc" %}
 ```cpp
 auto diagram = builder.Build();
 ```
 {% endcode %}
 
-{% code title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run_double_pendulum_passive.cc" %}
 ```cpp
 // Load and parse double pendulum SDF from file into a tree.
 multibody::MultibodyPlant<double>* dp =
@@ -227,7 +227,7 @@ dp->RegisterAsSourceForSceneGraph(&scene_graph);
 
 Create a `MultibodyPlant<double>` that represents the double pendulum. Then we set its name and connect it to `SceneGraph` so we could see the model later in simulation.
 
-{% code title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run_double_pendulum_passive.cc" %}
 ```cpp
 multibody::Parser parser(dp);
 const std::string sdf_path = FindResourceOrThrow(kDoublePendulumSdfPath);
@@ -239,7 +239,7 @@ multibody::ModelInstanceIndex plant_model_instance_index =
 
 Here we create a parser that actually create the model. It will parse the provided URDF or SDF file line by line, and call Drake functions internally to create a multibody in tree structure.
 
-{% code title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run_double_pendulum_passive.cc" %}
 ```cpp
 // Weld the base link to world frame with no rotation.
 const auto& root_link = dp->GetBodyByName("base");
@@ -255,7 +255,7 @@ DRAKE_DEMAND(!!dp->get_source_id());
 
 We then create a fixed joint `WeldJoint` between the robot base and the world frame. So the robot base always stay fixed on the ground. Once the MultibodyPlant is finished, we call `dp->Finalize()` so we seal the plant, making sure the robot model is not mutable during simulation. The `DRAKE_DEMAND` makes sure that the MultibodyPlant is created successfully.
 
-{% code title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run_double_pendulum_passive.cc" %}
 ```cpp
 builder.Connect(
   dp->get_geometry_poses_output_port(),
@@ -269,7 +269,7 @@ geometry::ConnectDrakeVisualizer(&builder, scene_graph);
 
 After the plant is created. We use builder again to connect the `MultibodyPlant` system with other blocks in the `diagram`. `scene_graph` receive the `MultibodyPlant` current state and compute the collision in the system. It then reports all the collision infomation to the `MultibodyPlant` so `MultibodyPlant` will decide the contact force according to the contact body material.
 
-{% code title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run_double_pendulum_passive.cc" %}
 ```cpp
 auto diagram = builder.Build();
 std::unique_ptr<systems::Context<double>> diagram_context =
@@ -283,7 +283,7 @@ systems::Context<double>& plant_context =
 
 Create the `diagram`  and `diagram_context`. Get the `plant_context` by getting subsystem context from the `diagram_context`.
 
-{% code title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run_double_pendulum_passive.cc" %}
 ```cpp
 // Set init position.
 Eigen::VectorXd positions = Eigen::VectorXd::Zero(2);
@@ -295,7 +295,7 @@ dp->SetPositions(&plant_context, positions);
 
 Set the initial position of the robot away from the home position.
 
-{% code title="run\_double\_pendulum\_passive.cc" %}
+{% code title="run_double_pendulum_passive.cc" %}
 ```cpp
 systems::Simulator<double> simulator(*diagram, std::move(diagram_context));
 simulator.set_publish_every_time_step(true);
@@ -311,7 +311,7 @@ Create a `Simulator` , set the simulation parameter. Then actually do the simula
 
 Add code to you repository.
 
-```text
+```
 cd drake
 git remote add gzy https://github.com/guzhaoyuan/drake.git
 git pull gzy tutorial
@@ -320,7 +320,7 @@ git checkout tutorial
 
 Run.
 
-```text
+```
 bazel-bin/tools/drake_visualizer &
 bazel run //examples/double_pendulum_pid:run_double_pendulum_passive_exe
 ```
@@ -329,8 +329,7 @@ bazel run //examples/double_pendulum_pid:run_double_pendulum_passive_exe
 
 Similar example of parsing an Allegro hand.
 
-```text
+```
 bazel-bin/tools/drake_visualizer &
 bazel run //examples/allegro_hand:run_allegro_constant_load_demo
 ```
-

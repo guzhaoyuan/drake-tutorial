@@ -23,7 +23,7 @@ In this tutorial, we will go through:
 
 Create workspace and files.
 
-```text
+```
 cd drake
 mkdir -p examples/double_pendulum_pid
 ```
@@ -33,7 +33,7 @@ mkdir -p examples/double_pendulum_pid
 To make the work space compile, we add the following to `BUILD.bazel`
 
 {% code title="BUILD.bazel" %}
-```text
+```
 load(
     "@drake//tools/skylark:drake_cc.bzl",
     "drake_cc_binary",
@@ -73,7 +73,7 @@ install_data()
 
 And add the _run\_double\_pendulum\_pid.cc_ file
 
-{% code title="run\_double\_pendulum\_pid.cc" %}
+{% code title="run_double_pendulum_pid.cc" %}
 ```cpp
 ///
 /// @brief  An SDF based double pendulum example.
@@ -217,7 +217,7 @@ int main(int argc, char** argv) {
 
 #### Simulate and visualize
 
-```text
+```
 bazel-bin/tools/drake_visualizer &
 bazel run //examples/double_pendulum_pid:run_double_pendulum_pid_exe -- --Kp_=1000 --Ki_=5 --Kd_=100
 ```
@@ -228,5 +228,4 @@ bazel run //examples/double_pendulum_pid:run_double_pendulum_pid_exe -- --Kp_=10
 
 ### Try with your own model
 
-You could bring your own simple URDF/SDF \(with 1 or 2 degree of freedom\) and try doing a position control with the PID controller.
-
+You could bring your own simple URDF/SDF (with 1 or 2 degree of freedom) and try doing a position control with the PID controller.

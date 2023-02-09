@@ -2,13 +2,13 @@
 
 Drake does not support visualizing the trajectory yet. To show any customized data format in visualizer, we need a plugin.
 
-![Visualize trajectory](../.gitbook/assets/screenshot-from-2019-06-25-15-13-33.png)
+![Visualize trajectory](<../.gitbook/assets/Screenshot from 2019-06-25 15-13-33.png>)
 
 ### Create plugin
 
 You could place your plugin anywhere as long as they load correctly. I would put the plugin file `show_trajectory.py` under _drake/tools/workspace/drake\_visualizer/plugin/_
 
-{% code title="show\_trajectory.py" %}
+{% code title="show_trajectory.py" %}
 ```python
 # Note that this script runs in the main context of drake-visulizer,
 # where many modules and variables already exist in the global scope.
@@ -153,11 +153,11 @@ The plugin could be loaded by the `drake_visualizer`, it will call the `_handle_
 
 ### Create and send trajectory to visualizer
 
-Add publisher code and `BUILD.bazel` under _drake/examples/viz_. 
+Add publisher code and `BUILD.bazel` under _drake/examples/viz_.&#x20;
 
 This code would create a piecewise cubic polynomial trajectory given several key points and sample points on the trajectory. The points are then packed into message and sent over to the `drake_visualizer`.
 
-{% code title="trajectory\_publisher.cc" %}
+{% code title="trajectory_publisher.cc" %}
 ```cpp
 /// @file
 ///
@@ -293,7 +293,7 @@ int main(int argc, char* argv[]) {
 {% endcode %}
 
 {% code title="BUILD.bazel" %}
-```text
+```
 drake_cc_binary(
     name = "trajectory_publisher",
     srcs = ["trajectory_publisher.cc"],
@@ -325,16 +325,14 @@ drake_cc_binary(
 
 Compile the visualizer again, and open visualizer with plugin.
 
-```text
+```
 bazel build //tools:drake_visualizer
 bazel-bin/tools/drake_visualizer --script=tools/workspace/drake_visualizer/plugin/show_trajectory.py
 ```
 
 Run the trajectory publisher.
 
-```text
+```
 bazel run //examples/viz:trajectory_publisher
 ```
-
-
 

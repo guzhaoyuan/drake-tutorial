@@ -1,25 +1,25 @@
 # Inverse Dynamics Control on fully-actuated KUKA arm
 
-![Control KUKA back to home position with inverse dynamics controller](../.gitbook/assets/kuka_idc.gif)
+![Control KUKA back to home position with inverse dynamics controller](../.gitbook/assets/kuka\_idc.gif)
 
 ### Why Inverse Dynamics Control, why not PID?
 
 Why not use PID controller? That's a good question. If the robot's joints are decouples and using PID controller for each joint is the way to go. All you need is model-free parameters that corresponds to each joint. In my case, I am simulating a humanoid robot with two arms, the joints and links are deeply coupled that model-free method does not work well here.
 
-The [Inverse Dynamics Controller](https://drake.mit.edu/doxygen_cxx/classdrake_1_1systems_1_1controllers_1_1_inverse_dynamics_controller.html#details) is a system block that takes in the desired acceleration and spit out whatever the generalized control force is. Using Inverse Dynamics Controller is easy in Drake because `MultibodyPlant` does all the inverse dynamics calculation for you.
+The [Inverse Dynamics Controller](https://drake.mit.edu/doxygen\_cxx/classdrake\_1\_1systems\_1\_1controllers\_1\_1\_inverse\_dynamics\_controller.html#details) is a system block that takes in the desired acceleration and spit out whatever the generalized control force is. Using Inverse Dynamics Controller is easy in Drake because `MultibodyPlant` does all the inverse dynamics calculation for you.
 
 ### Code
 
 Create a folder _drake/examples/kuka\_iiwa\_arm\_idc/_
 
-```text
+```
 cd drake
 mkdir -p examples/kuka_iiwa_arm_idc
 ```
 
 Put the following file into the folder.
 
-{% code title="run\_kuka\_idc\_demo.cc" %}
+{% code title="run_kuka_idc_demo.cc" %}
 ```cpp
 /// @file
 ///
@@ -182,7 +182,7 @@ int main(int argc, char* argv[]) {
 Add `BUILD.bazel`
 
 {% code title="BUILD.bazel" %}
-```text
+```
 load(
     "@drake//tools/skylark:drake_cc.bzl",
     "drake_cc_binary",
@@ -217,19 +217,18 @@ drake_cc_binary(
 
 ### Run demo
 
-```text
+```
 bazel-bin/tools/drake_visualizer &
 bazel run //examples/kuka_iiwa_arm_idc:run_kuka_idc
 ```
 
 ### Links
 
-The complete code is [here](https://github.com/guzhaoyuan/drake/tree/tutorial/examples/kuka_iiwa_arm_idc).
+The complete code is [here](https://github.com/guzhaoyuan/drake/tree/tutorial/examples/kuka\_iiwa\_arm\_idc).
 
-Similar demo is [kinova jaco arm set pose control](https://github.com/guzhaoyuan/drake/blob/tutorial/examples/kinova_jaco_arm/run_setpose_jaco_demo.cc).
+Similar demo is [kinova jaco arm set pose control](https://github.com/guzhaoyuan/drake/blob/tutorial/examples/kinova\_jaco\_arm/run\_setpose\_jaco\_demo.cc).
 
-```text
+```
 bazel-bin/tools/drake_visualizer &
 bazel run //examples/kinova_jaco_arm:run_setpose_jaco_demo
 ```
-

@@ -2,11 +2,13 @@
 
 Before starting, make sure you understand the basic Drake concept at this link.
 
-{% page-ref page="../introduction/drake-concept.md" %}
+{% content-ref url="../introduction/drake-concept.md" %}
+[drake-concept.md](../introduction/drake-concept.md)
+{% endcontent-ref %}
 
 ### Goal
 
-Given a Equation of Motion \(EoM\) of a particle mass system, create the exact system which moves with external force. Simulate the system and visualize the results.
+Given a Equation of Motion (EoM) of a particle mass system, create the exact system which moves with external force. Simulate the system and visualize the results.
 
 ### Analysis
 
@@ -29,7 +31,7 @@ The system get external force $$f(t)$$ from input port, then we compute the syst
 
 The $$f(t)$$ comes from a input source, the output of the system goes to the visualization so we could observe the result.
 
-![](../.gitbook/assets/block-diagram-1.png)
+![](<../.gitbook/assets/Block diagram (1).png>)
 
 ### Code Implementation
 
@@ -155,4 +157,3 @@ std::cout << "Simulation done." << std::endl;
 ### Credit
 
 Thanks Manuel Ahumada for providing this example.
-
