@@ -14,4 +14,4 @@ If you have any questions, please [file an issue](https://github.com/guzhaoyuan/
 
 Drake started to release monthly in 2020 and the development moves fast. This tutorial is based on release [v0.20.0](https://github.com/RobotLocomotion/drake/releases/tag/v0.20.0). I am slowly updating the tutorial to [v1.0.0](https://github.com/RobotLocomotion/drake/releases/tag/v1.0.0), which was released in March 2022.
 
-The Drake developer team has put up an official tutorial using its Python version, [Drake tutorials on Deepnotes](https://deepnote.com/workspace/Drake-0b3b2c53-a7ad-441b-80f8-bf8350752305/project/Tutorials-2b4fc509-aef2-417d-a40d-6071dfed9199/%2Findex.ipynb). You can find it from [drake.mit.edu](http://drake.mit.edu/) > Resources > Tutorials. This tutorial, on the other hand, focuses only on the C++ version of Drake.
+The Drake developer team has put up an official tutorial using its Python version, [Drake tutorials on Deepnotes](https://deepnote.com/workspace/Drake-0b3b2c53-a7ad-441b-80f8-bf8350752305/project/Tutorials-2b4fc509-aef2-417d-a40d-6071dfed9199/%2Findex.ipynb). You can find it from [drake.mit.edu](http://drake.mit.edu/) > Resources > Tutorials.
