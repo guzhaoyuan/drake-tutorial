@@ -4,21 +4,21 @@ description: >-
   Transcription.
 ---
 
-# \[WIP\] Trajectory Optimization 1 - Direct Transcription
+# \[WIP] Trajectory Optimization 1 - Direct Transcription
 
 Trajectory Optimization is a mathematical technique that generates optimal behaviors for robots. It is widely used in industries, such as humanoid robot, autonomous driving. There are different methods to do trajectory optimization. In this tutorial, we will cover Direct Transcription, Direct Collocation and Direct Shooting methods.
 
 [Matthew Kelly](http://www.matthewpeterkelly.com/) that gives a good [tutorial ](https://epubs.siam.org/doi/pdf/10.1137/16M1062569)on Trajectory Optimization. Also Russ Tedrake have a [note in the underactuated robotics course](http://underactuated.mit.edu/underactuated.html?chapter=trajopt) that gives a introduction on these techniques.
 
-The trajectory optimization is an optimization problem that requires mathematical programming. Drake is good at solving mathematical program problems. Drake documentation provides a [tutorial on Drake mathematical programming](https://mybinder.org/v2/gh/RobotLocomotion/drake/master?filepath=tutorials/mathematical_program.ipynb).
+The trajectory optimization is an optimization problem that requires mathematical programming. Drake is good at solving mathematical program problems. Drake documentation provides a [tutorial on Drake mathematical programming](https://mybinder.org/v2/gh/RobotLocomotion/drake/master?filepath=tutorials/mathematical\_program.ipynb).
 
 ### Direct Transcription
 
 Direct Transcription is an intuitive method that discretize the trajectory and transform the optimization problem into a nonlinear programming problem that has this form:
 
 $$
-min  f(z)\\
-st: g(z) = 0
+\min. \quad f(z)\\
+{\rm s.t.} \quad g(z) = 0
 $$
 
 The $$f(z)$$ is goal function and $$g(z)$$ is the constraint. In the robotics setting, the z usually includes the state and control input, while the constraint involves the dynamics equation of motion and state limits.
@@ -35,5 +35,4 @@ We use a simple example from Kelly's tutorial. we want to push and pull a box on
 
 ### Useful Resources
 
-\[1\] Kelly, M. \(2017\). An introduction to trajectory optimization: How to do your own direct collocation authors matthew kelly. SIAM Review, 39.
-
+\[1] Kelly, M. (2017). An introduction to trajectory optimization: How to do your own direct collocation authors&#x20;matthew kelly. SIAM Review, 39.
